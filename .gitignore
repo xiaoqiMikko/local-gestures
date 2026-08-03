@@ -1,0 +1,17 @@
+# build / packaging output
+*.zip
+dist/
+
+# test artefacts
+lg-test-profile-*/
+lg-demo-profile-*/
+*.png.bak
+__pycache__/
+*.pyc
+
+# editors
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Local Gestures — 功能演示</title>
+<style>
+  :root { --line:#dde3ee; --muted:#5b6572; --accent:#2f81f7; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+         color:#1a1f28; background:#f6f8fc; }
+  header { background:#2f81f7; color:#fff; padding:26px 32px; }
+  header h1 { margin:0 0 6px; font-size:22px; }
+  header p { margin:0; opacity:.9; font-size:14px; }
+  main { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+  h2 { margin:34px 0 10px; font-size:16px; color:var(--muted);
+       text-transform:uppercase; letter-spacing:.05em; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:12px;
+          padding:18px 22px; margin-bottom:16px; }
+  table { width:100%; border-collapse:collapse; }
+  th,td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; }
+  th { font-size:12px; color:var(--muted); font-weight:600; }
+  td.g { font-size:20px; letter-spacing:4px; width:110px; color:var(--accent); }
+  .zone { height:300px; display:flex; align-items:center; justify-content:center;
+          border:2px dashed var(--accent); border-radius:12px; background:#fff;
+          color:#8b95a4; font-size:22px; user-select:none; margin:14px 0; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .drag { padding:16px; background:#fff; border:1px solid var(--line);
+          border-radius:10px; }
+  .drag img { width:150px; height:100px; object-fit:cover; border-radius:8px; }
+  .tip { color:var(--muted); font-size:14px; }
+  code { background:#eef2f8; padding:2px 6px; border-radius:5px; font-size:14px; }
+  .filler p { margin:0; padding:16px 20px; background:#fff;
+              border-bottom:1px solid var(--line); }
+  @media (max-width:760px){ .row2{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <h1>Local Gestures — 功能演示</h1>
+  <p>在本页任意空白处按住<strong>鼠标右键</strong>画手势即可。松开右键执行,不弹右键菜单。</p>
+</header>
+
+<main>
+  <h2>① 笔画手势 · 在下面这块区域画</h2>
+  <div class="zone">按住右键,在这里画 ← 或 ↓→</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>手势</th><th>动作</th><th>怎么画</th></tr></thead>
+      <tbody>
+        <tr><td class="g">←</td><td>后退</td><td>按住右键向左划</td></tr>
+        <tr><td class="g">→</td><td>前进</td><td>按住右键向右划</td></tr>
+        <tr><td class="g">↑</td><td>滚到顶部</td><td>向上划</td></tr>
+        <tr><td class="g">↓</td><td>滚到底部</td><td>向下划</td></tr>
+        <tr><td class="g">↑↓</td><td>刷新</td><td>先上后下</td></tr>
+        <tr><td class="g">↓↑</td><td>恢复关闭的标签页</td><td>先下后上</td></tr>
+        <tr><td class="g">↓→</td><td>关闭标签页</td><td>先下后右(经典)</td></tr>
+        <tr><td class="g">↑→</td><td>新建标签页</td><td>先上后右</td></tr>
+        <tr><td class="g">←→</td><td>下一个标签页</td><td>先左后右</td></tr>
+        <tr><td class="g">→←</td><td>上一个标签页</td><td>先右后左</td></tr>
+        <tr><td class="g">↓←</td><td>复制标签页</td><td>先下后左</td></tr>
+        <tr><td class="g">↑←</td><td>固定 / 取消固定</td><td>先上后左</td></tr>
+        <tr><td class="g">→↓</td><td>静音 / 取消静音</td><td>先右后下</td></tr>
+        <tr><td class="g">←↑</td><td>重置缩放</td><td>先左后上</td></tr>
+        <tr><td class="g">→↑</td><td>切换全屏</td><td>先右后上</td></tr>
+        <tr><td class="g">←↓</td><td>新建窗口</td><td>先左后下</td></tr>
+        <tr><td class="g">→↑←</td><td>关闭其他标签页</td><td>三段手势</td></tr>
+        <tr><td class="g">←↓→</td><td>查看网页源码</td><td>三段手势</td></tr>
+        <tr><td class="g">↑↓↑</td><td>强制刷新</td><td>三段手势</td></tr>
+      </tbody>
+    </table>
+    <p class="tip">画的时候会有蓝色轨迹,底部会实时显示将要执行的动作名。画到一半发现画错了,
+      随便乱划成一个没绑定的形状再松手即可 —— 提示会变红,不会执行任何动作。</p>
+  </div>
+
+  <h2>② 摇杆手势 · 不用画</h2>
+  <div class="card">
+    <table>
+      <tbody>
+        <tr><td class="g">R→L</td><td><strong>按住右键,点一下左键</strong> → 后退</td></tr>
+        <tr><td class="g">L→R</td><td><strong>按住左键,点一下右键</strong> → 前进</td></tr>
+      </tbody>
+    </table>
+    <p class="tip">这是最快的翻页方式,一只手就能连点。</p>
+  </div>
+
+  <h2>③ 滚轮手势</h2>
+  <div class="card">
+    <p><strong>按住右键不放,滚动滚轮</strong> —— 向上滚切上一个标签页,向下滚切下一个。</p>
+    <p class="tip">多开几个标签页再试,效果最明显。</p>
+  </div>
+
+  <h2>④ 超级拖拽 · 方向决定行为</h2>
+  <div class="row2">
+    <div class="drag">
+      <p><strong>拖这个链接:</strong></p>
+      <p><a href="https://example.com/">example.com</a></p>
+      <p class="tip">上=前台打开 · 下=后台打开 · 左=复制网址 · 右=新窗口打开</p>
+    </div>
+    <div class="drag">
+      <p><strong>拖这张图:</strong></p>
+      <p><img src="pic.png" alt="演示图片"></p>
+      <p class="tip">上=前台打开 · 下=后台打开 · 左=复制地址 · 右=下载(需授权)</p>
+    </div>
+  </div>
+  <div class="drag" style="margin-top:16px">
+    <p><strong>选中这段文字然后拖走:</strong>鼠标手势扩展 隐私 开源</p>
+    <p class="tip">上=前台搜索 · 下=后台搜索 · 左=复制 · 右=后台搜索。
+      搜索用的是你 Chrome 里设的默认搜索引擎,扩展本身不含任何搜索网址。</p>
+  </div>
+
+  <h2>⑤ 弹出轮盘(默认关闭,去设置里打开)</h2>
+  <div class="card">
+    <p><strong>按住右键别动</strong>,约 0.35 秒后光标周围会展开 8 个动作,移向其中一个松手即可。</p>
+    <p class="tip">松手时如果还在圆心附近,就是取消,什么都不会发生。</p>
+  </div>
+
+  <h2>⑥ 其他入口</h2>
+  <div class="card">
+    <table>
+      <tbody>
+        <tr><td><strong>双击</strong></td><td>页面空白处双击执行动作(默认关闭)。双击文字仍然是选词,不会误触发。</td></tr>
+        <tr><td><strong>简单拖拽</strong></td><td>空白处按左键直线拖动(默认关闭,因为会和选文字冲突)。</td></tr>
+        <tr><td><strong>快捷键</strong></td><td><code>Alt+Shift+1~4</code>,四个槽位各绑一个动作。</td></tr>
+        <tr><td><strong>右键菜单</strong></td><td>可把常用动作加进右键菜单(默认关闭)。</td></tr>
+        <tr><td><strong>工具栏图标</strong></td><td>点击执行指定动作,默认是打开设置。</td></tr>
+        <tr><td><strong>触摸屏</strong></td><td>双指手势,和鼠标共用同一张手势表(默认关闭)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>⑦ 隐私这块可以自己验证</h2>
+  <div class="card">
+    <p>整个扩展没有任何联网代码。在源码目录里跑这一行就能自己确认:</p>
+    <p><code>grep -rn "fetch(\|XMLHttpRequest\|WebSocket\|sendBeacon" src/</code></p>
+    <p class="tip">应该只匹配到注释里那句「绝不联网」的声明。权限里也没有
+      <code>host_permissions</code>、没有 <code>webRequest</code>、没有 <code>history</code>。
+      下载和书签是可选权限,默认不申请,你不用就永远不会被要。</p>
+  </div>
+
+  <h2>下面是填充内容,用来测试滚动手势</h2>
+  <div class="filler" id="filler"></div>
+</main>
+
+<script>
+  const f = document.getElementById('filler');
+  for (let i = 1; i <= 60; i++) {
+    const p = document.createElement('p');
+    p.textContent = '第 ' + i + ' 行 —— 往下拉,然后按住右键向上划试试「滚到顶部」。';
+    f.appendChild(p);
+  }
+</script>
+</body>
+</html>

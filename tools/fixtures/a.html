@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Page A</title>
+<style>
+  body { font: 16px system-ui; margin: 0; background: #eef3ff; }
+  .pad { height: 520px; display: flex; align-items: center;
+         justify-content: center; font-size: 40px; color: #889;
+         user-select: none; background: #f7f9ff; }
+  a { font-size: 20px; }
+  img { width: 120px; height: 80px; }
+  #bottom { font-size: 28px; color: #559; padding: 40px; background: #dde6ff; }
+  .line { margin: 0; padding: 14px 20px; border-bottom: 1px solid #dde; }
+</style>
+</head>
+<body>
+  <h1 id="who">PAGE A</h1>
+  <p><a id="toB" href="b.html">go to B</a></p>
+  <p><a id="ext" href="https://example.com/target">external link for drag</a></p>
+  <p><img id="pic" src="pic.png" alt="drag me"></p>
+  <p id="sel">selectable text for dragging</p>
+  <div class="pad">empty area — draw here</div>
+  <div id="filler"></div>
+  <div id="bottom">BOTTOM OF PAGE A</div>
+  <script>
+    // Real content, not a CSS height: guarantees the document actually scrolls.
+    const f = document.getElementById('filler');
+    for (let i = 0; i < 90; i++) {
+      const p = document.createElement('p');
+      p.className = 'line';
+      p.textContent = 'filler line ' + i;
+      f.appendChild(p);
+    }
+  </script>
+</body>
+</html>

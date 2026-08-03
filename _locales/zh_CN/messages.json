@@ -1,0 +1,467 @@
+{
+  "extName": {
+    "message": "Local Gestures — 鼠标手势,完全离线"
+  },
+  "extDesc": {
+    "message": "鼠标手势、摇杆、滚轮、超级拖拽等全套功能。零网络请求 —— 你的浏览数据永远不会离开本机。"
+  },
+  "tagline": {
+    "message": "绝不回传任何数据。"
+  },
+  "optionsTitle": {
+    "message": "Local Gestures 设置"
+  },
+  "cmdSlot1": {
+    "message": "快捷键槽位 1"
+  },
+  "cmdSlot2": {
+    "message": "快捷键槽位 2"
+  },
+  "cmdSlot3": {
+    "message": "快捷键槽位 3"
+  },
+  "cmdSlot4": {
+    "message": "快捷键槽位 4"
+  },
+  "tabGestures": {
+    "message": "手势"
+  },
+  "tabPopup": {
+    "message": "弹出轮盘"
+  },
+  "tabMouse": {
+    "message": "鼠标"
+  },
+  "tabDrag": {
+    "message": "拖拽"
+  },
+  "tabEntries": {
+    "message": "其他入口"
+  },
+  "tabLook": {
+    "message": "外观"
+  },
+  "tabAdvanced": {
+    "message": "高级"
+  },
+  "optEnabled": {
+    "message": "启用"
+  },
+  "saved": {
+    "message": "已保存"
+  },
+  "added": {
+    "message": "已添加"
+  },
+  "replaced": {
+    "message": "已替换"
+  },
+  "imported": {
+    "message": "设置已导入"
+  },
+  "importFailed": {
+    "message": "无法读取该文件"
+  },
+  "resetDone": {
+    "message": "已恢复默认"
+  },
+  "confirmReset": {
+    "message": "确定把所有设置恢复为默认值?"
+  },
+  "warnNoGesture": {
+    "message": "请先画出或拼出一个手势。"
+  },
+  "hintUnassigned": {
+    "message": "未绑定"
+  },
+  "btnDelete": {
+    "message": "删除"
+  },
+  "optStrokeEnabled": {
+    "message": "笔画手势"
+  },
+  "noteStroke": {
+    "message": "按住手势键画出形状。"
+  },
+  "optButton": {
+    "message": "手势按键"
+  },
+  "btnRight": {
+    "message": "右键"
+  },
+  "btnMiddle": {
+    "message": "中键"
+  },
+  "padHint": {
+    "message": "按住手势键在此处画"
+  },
+  "lblGesture": {
+    "message": "手势"
+  },
+  "lblAction": {
+    "message": "动作"
+  },
+  "btnClear": {
+    "message": "清除"
+  },
+  "btnAdd": {
+    "message": "添加 / 替换"
+  },
+  "colGesture": {
+    "message": "手势"
+  },
+  "colAction": {
+    "message": "动作"
+  },
+  "colDirection": {
+    "message": "方向"
+  },
+  "optPopup": {
+    "message": "弹出轮盘"
+  },
+  "notePopup": {
+    "message": "按住手势键保持不动,八个动作会在光标周围展开。移向其中一个后松开即可执行。"
+  },
+  "optPopupDelay": {
+    "message": "按住多久后弹出(毫秒)"
+  },
+  "optRocker": {
+    "message": "摇杆手势"
+  },
+  "noteRocker": {
+    "message": "按住一个鼠标键,点击另一个。"
+  },
+  "optRockerLR": {
+    "message": "按住左键,点右键"
+  },
+  "optRockerRL": {
+    "message": "按住右键,点左键"
+  },
+  "optWheel": {
+    "message": "滚轮手势"
+  },
+  "noteWheel": {
+    "message": "按住手势键并滚动滚轮。"
+  },
+  "optWheelUp": {
+    "message": "向上滚"
+  },
+  "optWheelDown": {
+    "message": "向下滚"
+  },
+  "optDoubleClick": {
+    "message": "双击动作"
+  },
+  "noteDoubleClick": {
+    "message": "仅在页面空白处生效 —— 不会在文字、链接或表单控件上触发。"
+  },
+  "optDoubleClickAction": {
+    "message": "双击时"
+  },
+  "optSimpleDrag": {
+    "message": "简单拖拽"
+  },
+  "noteSimpleDrag": {
+    "message": "在页面空白处按左键直线拖动。默认关闭,因为它会和选择文字冲突。"
+  },
+  "optSimpleDragDist": {
+    "message": "最小距离(像素)"
+  },
+  "optSuperDrag": {
+    "message": "超级拖拽"
+  },
+  "noteDrag": {
+    "message": "拖动链接、图片或选中的文字。拖动方向决定执行什么。"
+  },
+  "optDragDist": {
+    "message": "最小拖动距离(像素)"
+  },
+  "hdrDragLink": {
+    "message": "链接"
+  },
+  "hdrDragImage": {
+    "message": "图片"
+  },
+  "hdrDragText": {
+    "message": "选中的文字"
+  },
+  "noteSearch": {
+    "message": "搜索使用 Chrome 已设定的搜索引擎。本扩展内部不含任何搜索网址。"
+  },
+  "hdrIcon": {
+    "message": "工具栏图标"
+  },
+  "optIconAction": {
+    "message": "点击图标时执行"
+  },
+  "hdrContext": {
+    "message": "右键菜单"
+  },
+  "optContextMenu": {
+    "message": "把动作加进右键菜单"
+  },
+  "btnAddItem": {
+    "message": "添加一项"
+  },
+  "hdrKeys": {
+    "message": "键盘快捷键"
+  },
+  "noteKeys": {
+    "message": "在这里决定每个槽位执行什么;实际的按键组合在 Chrome 的快捷键页面设置。"
+  },
+  "btnOpenShortcuts": {
+    "message": "打开 Chrome 快捷键设置"
+  },
+  "hdrTouch": {
+    "message": "触摸屏"
+  },
+  "optTouch": {
+    "message": "触摸手势"
+  },
+  "noteTouch": {
+    "message": "使用与鼠标相同的手势表。"
+  },
+  "optTouchFingers": {
+    "message": "手指数"
+  },
+  "optTrail": {
+    "message": "显示手势轨迹"
+  },
+  "optTrailColor": {
+    "message": "轨迹颜色"
+  },
+  "optTrailWidth": {
+    "message": "轨迹粗细"
+  },
+  "optHint": {
+    "message": "显示动作提示"
+  },
+  "optHintPos": {
+    "message": "提示位置"
+  },
+  "posBottom": {
+    "message": "底部"
+  },
+  "posTop": {
+    "message": "顶部"
+  },
+  "optSuppress": {
+    "message": "手势后不弹出右键菜单"
+  },
+  "optMinDistance": {
+    "message": "方向判定阈值(像素)"
+  },
+  "optMinStroke": {
+    "message": "最短笔画长度(像素)"
+  },
+  "optHomeUrl": {
+    "message": "主页网址"
+  },
+  "optExcludes": {
+    "message": "在这些网址上禁用(每行一条,可用 *)"
+  },
+  "optPerms": {
+    "message": "可选权限"
+  },
+  "permDownloads": {
+    "message": "下载 —— 仅在保存拖拽的图片时需要"
+  },
+  "permBookmarks": {
+    "message": "书签 —— 仅在使用「添加书签」动作时需要"
+  },
+  "notePerms": {
+    "message": "两项默认都不开启,并且随时可以在这里撤销。"
+  },
+  "btnExport": {
+    "message": "导出设置"
+  },
+  "btnImport": {
+    "message": "导入设置"
+  },
+  "btnReset": {
+    "message": "恢复默认"
+  },
+  "group_nav": {
+    "message": "导航"
+  },
+  "group_tab": {
+    "message": "标签页"
+  },
+  "group_win": {
+    "message": "窗口"
+  },
+  "group_scroll": {
+    "message": "滚动"
+  },
+  "group_zoom": {
+    "message": "缩放"
+  },
+  "group_page": {
+    "message": "页面"
+  },
+  "group_misc": {
+    "message": "其他"
+  },
+  "drag_newTabBg": {
+    "message": "在后台标签页打开"
+  },
+  "drag_newTabFg": {
+    "message": "在前台标签页打开"
+  },
+  "drag_newWindow": {
+    "message": "在新窗口打开"
+  },
+  "drag_copy": {
+    "message": "复制到剪贴板"
+  },
+  "drag_download": {
+    "message": "下载"
+  },
+  "drag_searchBg": {
+    "message": "在后台标签页搜索"
+  },
+  "drag_searchFg": {
+    "message": "在前台标签页搜索"
+  },
+  "drag_none": {
+    "message": "不执行"
+  },
+  "action_back": {
+    "message": "后退"
+  },
+  "action_forward": {
+    "message": "前进"
+  },
+  "action_reload": {
+    "message": "刷新"
+  },
+  "action_reloadHard": {
+    "message": "强制刷新(忽略缓存)"
+  },
+  "action_stop": {
+    "message": "停止加载"
+  },
+  "action_home": {
+    "message": "打开主页"
+  },
+  "action_parentDir": {
+    "message": "上级目录"
+  },
+  "action_siteRoot": {
+    "message": "网站首页"
+  },
+  "action_newTab": {
+    "message": "新建标签页"
+  },
+  "action_closeTab": {
+    "message": "关闭标签页"
+  },
+  "action_reopenTab": {
+    "message": "恢复关闭的标签页"
+  },
+  "action_duplicateTab": {
+    "message": "复制标签页"
+  },
+  "action_togglePin": {
+    "message": "固定 / 取消固定"
+  },
+  "action_toggleMute": {
+    "message": "静音 / 取消静音"
+  },
+  "action_prevTab": {
+    "message": "上一个标签页"
+  },
+  "action_nextTab": {
+    "message": "下一个标签页"
+  },
+  "action_firstTab": {
+    "message": "第一个标签页"
+  },
+  "action_lastTab": {
+    "message": "最后一个标签页"
+  },
+  "action_lastUsedTab": {
+    "message": "上次使用的标签页"
+  },
+  "action_closeOtherTabs": {
+    "message": "关闭其他标签页"
+  },
+  "action_closeRightTabs": {
+    "message": "关闭右侧标签页"
+  },
+  "action_closeLeftTabs": {
+    "message": "关闭左侧标签页"
+  },
+  "action_moveTabLeft": {
+    "message": "标签页左移"
+  },
+  "action_moveTabRight": {
+    "message": "标签页右移"
+  },
+  "action_detachTab": {
+    "message": "移到新窗口"
+  },
+  "action_newWindow": {
+    "message": "新建窗口"
+  },
+  "action_newIncognito": {
+    "message": "新建无痕窗口"
+  },
+  "action_closeWindow": {
+    "message": "关闭窗口"
+  },
+  "action_minimizeWindow": {
+    "message": "最小化窗口"
+  },
+  "action_toggleMaximize": {
+    "message": "最大化 / 还原"
+  },
+  "action_toggleFullscreen": {
+    "message": "切换全屏"
+  },
+  "action_scrollTop": {
+    "message": "滚动到顶部"
+  },
+  "action_scrollBottom": {
+    "message": "滚动到底部"
+  },
+  "action_scrollPageUp": {
+    "message": "上翻一页"
+  },
+  "action_scrollPageDown": {
+    "message": "下翻一页"
+  },
+  "action_zoomIn": {
+    "message": "放大"
+  },
+  "action_zoomOut": {
+    "message": "缩小"
+  },
+  "action_zoomReset": {
+    "message": "重置缩放"
+  },
+  "action_viewSource": {
+    "message": "查看网页源码"
+  },
+  "action_print": {
+    "message": "打印"
+  },
+  "action_copyUrl": {
+    "message": "复制网址"
+  },
+  "action_copyTitle": {
+    "message": "复制标题"
+  },
+  "action_copyTitleUrl": {
+    "message": "复制标题和网址"
+  },
+  "action_addBookmark": {
+    "message": "添加书签"
+  },
+  "action_openOptions": {
+    "message": "打开设置"
+  },
+  "action_none": {
+    "message": "无"
+  }
+}

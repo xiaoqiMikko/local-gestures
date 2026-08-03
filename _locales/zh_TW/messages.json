@@ -1,0 +1,467 @@
+{
+  "extName": {
+    "message": "Local Gestures — 滑鼠手勢,完全離線"
+  },
+  "extDesc": {
+    "message": "滑鼠手勢、搖桿、滾輪、超級拖曳等全套功能。零網路請求 —— 你的瀏覽資料永遠不會離開本機。"
+  },
+  "tagline": {
+    "message": "絕不回傳任何資料。"
+  },
+  "optionsTitle": {
+    "message": "Local Gestures 設定"
+  },
+  "cmdSlot1": {
+    "message": "快速鍵欄位 1"
+  },
+  "cmdSlot2": {
+    "message": "快速鍵欄位 2"
+  },
+  "cmdSlot3": {
+    "message": "快速鍵欄位 3"
+  },
+  "cmdSlot4": {
+    "message": "快速鍵欄位 4"
+  },
+  "tabGestures": {
+    "message": "手勢"
+  },
+  "tabPopup": {
+    "message": "彈出輪盤"
+  },
+  "tabMouse": {
+    "message": "滑鼠"
+  },
+  "tabDrag": {
+    "message": "拖曳"
+  },
+  "tabEntries": {
+    "message": "其他入口"
+  },
+  "tabLook": {
+    "message": "外觀"
+  },
+  "tabAdvanced": {
+    "message": "進階"
+  },
+  "optEnabled": {
+    "message": "啟用"
+  },
+  "saved": {
+    "message": "已儲存"
+  },
+  "added": {
+    "message": "已新增"
+  },
+  "replaced": {
+    "message": "已取代"
+  },
+  "imported": {
+    "message": "設定已匯入"
+  },
+  "importFailed": {
+    "message": "無法讀取該檔案"
+  },
+  "resetDone": {
+    "message": "已還原預設"
+  },
+  "confirmReset": {
+    "message": "確定將所有設定還原為預設值?"
+  },
+  "warnNoGesture": {
+    "message": "請先畫出或組出一個手勢。"
+  },
+  "hintUnassigned": {
+    "message": "未綁定"
+  },
+  "btnDelete": {
+    "message": "刪除"
+  },
+  "optStrokeEnabled": {
+    "message": "筆畫手勢"
+  },
+  "noteStroke": {
+    "message": "按住手勢鍵畫出形狀。"
+  },
+  "optButton": {
+    "message": "手勢按鍵"
+  },
+  "btnRight": {
+    "message": "右鍵"
+  },
+  "btnMiddle": {
+    "message": "中鍵"
+  },
+  "padHint": {
+    "message": "按住手勢鍵在此處畫"
+  },
+  "lblGesture": {
+    "message": "手勢"
+  },
+  "lblAction": {
+    "message": "動作"
+  },
+  "btnClear": {
+    "message": "清除"
+  },
+  "btnAdd": {
+    "message": "新增 / 取代"
+  },
+  "colGesture": {
+    "message": "手勢"
+  },
+  "colAction": {
+    "message": "動作"
+  },
+  "colDirection": {
+    "message": "方向"
+  },
+  "optPopup": {
+    "message": "彈出輪盤"
+  },
+  "notePopup": {
+    "message": "按住手勢鍵保持不動,八個動作會在游標周圍展開。移向其中一個後放開即可執行。"
+  },
+  "optPopupDelay": {
+    "message": "按住多久後彈出(毫秒)"
+  },
+  "optRocker": {
+    "message": "搖桿手勢"
+  },
+  "noteRocker": {
+    "message": "按住一個滑鼠鍵,點擊另一個。"
+  },
+  "optRockerLR": {
+    "message": "按住左鍵,點右鍵"
+  },
+  "optRockerRL": {
+    "message": "按住右鍵,點左鍵"
+  },
+  "optWheel": {
+    "message": "滾輪手勢"
+  },
+  "noteWheel": {
+    "message": "按住手勢鍵並滾動滾輪。"
+  },
+  "optWheelUp": {
+    "message": "向上滾"
+  },
+  "optWheelDown": {
+    "message": "向下滾"
+  },
+  "optDoubleClick": {
+    "message": "雙擊動作"
+  },
+  "noteDoubleClick": {
+    "message": "僅在頁面空白處生效 —— 不會在文字、連結或表單控制項上觸發。"
+  },
+  "optDoubleClickAction": {
+    "message": "雙擊時"
+  },
+  "optSimpleDrag": {
+    "message": "簡單拖曳"
+  },
+  "noteSimpleDrag": {
+    "message": "在頁面空白處按左鍵直線拖曳。預設關閉,因為它會和選取文字衝突。"
+  },
+  "optSimpleDragDist": {
+    "message": "最小距離(像素)"
+  },
+  "optSuperDrag": {
+    "message": "超級拖曳"
+  },
+  "noteDrag": {
+    "message": "拖曳連結、圖片或選取的文字。拖曳方向決定執行什麼。"
+  },
+  "optDragDist": {
+    "message": "最小拖曳距離(像素)"
+  },
+  "hdrDragLink": {
+    "message": "連結"
+  },
+  "hdrDragImage": {
+    "message": "圖片"
+  },
+  "hdrDragText": {
+    "message": "選取的文字"
+  },
+  "noteSearch": {
+    "message": "搜尋使用 Chrome 已設定的搜尋引擎。本擴充功能內部不含任何搜尋網址。"
+  },
+  "hdrIcon": {
+    "message": "工具列圖示"
+  },
+  "optIconAction": {
+    "message": "點擊圖示時執行"
+  },
+  "hdrContext": {
+    "message": "右鍵選單"
+  },
+  "optContextMenu": {
+    "message": "將動作加入右鍵選單"
+  },
+  "btnAddItem": {
+    "message": "新增一項"
+  },
+  "hdrKeys": {
+    "message": "鍵盤快速鍵"
+  },
+  "noteKeys": {
+    "message": "在這裡決定每個欄位執行什麼;實際的按鍵組合在 Chrome 的快速鍵頁面設定。"
+  },
+  "btnOpenShortcuts": {
+    "message": "開啟 Chrome 快速鍵設定"
+  },
+  "hdrTouch": {
+    "message": "觸控螢幕"
+  },
+  "optTouch": {
+    "message": "觸控手勢"
+  },
+  "noteTouch": {
+    "message": "使用與滑鼠相同的手勢表。"
+  },
+  "optTouchFingers": {
+    "message": "手指數"
+  },
+  "optTrail": {
+    "message": "顯示手勢軌跡"
+  },
+  "optTrailColor": {
+    "message": "軌跡顏色"
+  },
+  "optTrailWidth": {
+    "message": "軌跡粗細"
+  },
+  "optHint": {
+    "message": "顯示動作提示"
+  },
+  "optHintPos": {
+    "message": "提示位置"
+  },
+  "posBottom": {
+    "message": "底部"
+  },
+  "posTop": {
+    "message": "頂部"
+  },
+  "optSuppress": {
+    "message": "手勢後不彈出右鍵選單"
+  },
+  "optMinDistance": {
+    "message": "方向判定閾值(像素)"
+  },
+  "optMinStroke": {
+    "message": "最短筆畫長度(像素)"
+  },
+  "optHomeUrl": {
+    "message": "首頁網址"
+  },
+  "optExcludes": {
+    "message": "在這些網址上停用(每行一條,可用 *)"
+  },
+  "optPerms": {
+    "message": "選用權限"
+  },
+  "permDownloads": {
+    "message": "下載 —— 僅在儲存拖曳的圖片時需要"
+  },
+  "permBookmarks": {
+    "message": "書籤 —— 僅在使用「新增書籤」動作時需要"
+  },
+  "notePerms": {
+    "message": "兩項預設都不開啟,並且隨時可以在這裡撤銷。"
+  },
+  "btnExport": {
+    "message": "匯出設定"
+  },
+  "btnImport": {
+    "message": "匯入設定"
+  },
+  "btnReset": {
+    "message": "還原預設"
+  },
+  "group_nav": {
+    "message": "導覽"
+  },
+  "group_tab": {
+    "message": "分頁"
+  },
+  "group_win": {
+    "message": "視窗"
+  },
+  "group_scroll": {
+    "message": "捲動"
+  },
+  "group_zoom": {
+    "message": "縮放"
+  },
+  "group_page": {
+    "message": "頁面"
+  },
+  "group_misc": {
+    "message": "其他"
+  },
+  "drag_newTabBg": {
+    "message": "在背景分頁開啟"
+  },
+  "drag_newTabFg": {
+    "message": "在前景分頁開啟"
+  },
+  "drag_newWindow": {
+    "message": "在新視窗開啟"
+  },
+  "drag_copy": {
+    "message": "複製到剪貼簿"
+  },
+  "drag_download": {
+    "message": "下載"
+  },
+  "drag_searchBg": {
+    "message": "在背景分頁搜尋"
+  },
+  "drag_searchFg": {
+    "message": "在前景分頁搜尋"
+  },
+  "drag_none": {
+    "message": "不執行"
+  },
+  "action_back": {
+    "message": "上一頁"
+  },
+  "action_forward": {
+    "message": "下一頁"
+  },
+  "action_reload": {
+    "message": "重新整理"
+  },
+  "action_reloadHard": {
+    "message": "強制重新整理(忽略快取)"
+  },
+  "action_stop": {
+    "message": "停止載入"
+  },
+  "action_home": {
+    "message": "開啟首頁"
+  },
+  "action_parentDir": {
+    "message": "上層目錄"
+  },
+  "action_siteRoot": {
+    "message": "網站首頁"
+  },
+  "action_newTab": {
+    "message": "開新分頁"
+  },
+  "action_closeTab": {
+    "message": "關閉分頁"
+  },
+  "action_reopenTab": {
+    "message": "復原關閉的分頁"
+  },
+  "action_duplicateTab": {
+    "message": "複製分頁"
+  },
+  "action_togglePin": {
+    "message": "釘選 / 取消釘選"
+  },
+  "action_toggleMute": {
+    "message": "靜音 / 取消靜音"
+  },
+  "action_prevTab": {
+    "message": "上一個分頁"
+  },
+  "action_nextTab": {
+    "message": "下一個分頁"
+  },
+  "action_firstTab": {
+    "message": "第一個分頁"
+  },
+  "action_lastTab": {
+    "message": "最後一個分頁"
+  },
+  "action_lastUsedTab": {
+    "message": "上次使用的分頁"
+  },
+  "action_closeOtherTabs": {
+    "message": "關閉其他分頁"
+  },
+  "action_closeRightTabs": {
+    "message": "關閉右側分頁"
+  },
+  "action_closeLeftTabs": {
+    "message": "關閉左側分頁"
+  },
+  "action_moveTabLeft": {
+    "message": "分頁左移"
+  },
+  "action_moveTabRight": {
+    "message": "分頁右移"
+  },
+  "action_detachTab": {
+    "message": "移至新視窗"
+  },
+  "action_newWindow": {
+    "message": "開新視窗"
+  },
+  "action_newIncognito": {
+    "message": "開新無痕視窗"
+  },
+  "action_closeWindow": {
+    "message": "關閉視窗"
+  },
+  "action_minimizeWindow": {
+    "message": "最小化視窗"
+  },
+  "action_toggleMaximize": {
+    "message": "最大化 / 還原"
+  },
+  "action_toggleFullscreen": {
+    "message": "切換全螢幕"
+  },
+  "action_scrollTop": {
+    "message": "捲動到頂部"
+  },
+  "action_scrollBottom": {
+    "message": "捲動到底部"
+  },
+  "action_scrollPageUp": {
+    "message": "上翻一頁"
+  },
+  "action_scrollPageDown": {
+    "message": "下翻一頁"
+  },
+  "action_zoomIn": {
+    "message": "放大"
+  },
+  "action_zoomOut": {
+    "message": "縮小"
+  },
+  "action_zoomReset": {
+    "message": "重設縮放"
+  },
+  "action_viewSource": {
+    "message": "檢視網頁原始碼"
+  },
+  "action_print": {
+    "message": "列印"
+  },
+  "action_copyUrl": {
+    "message": "複製網址"
+  },
+  "action_copyTitle": {
+    "message": "複製標題"
+  },
+  "action_copyTitleUrl": {
+    "message": "複製標題和網址"
+  },
+  "action_addBookmark": {
+    "message": "新增書籤"
+  },
+  "action_openOptions": {
+    "message": "開啟設定"
+  },
+  "action_none": {
+    "message": "無"
+  }
+}

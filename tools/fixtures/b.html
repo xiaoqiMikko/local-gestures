@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Page B</title>
+<style>
+  body { font: 16px system-ui; margin: 0; background: #eefaee; }
+  .pad { height: 520px; display: flex; align-items: center;
+         justify-content: center; font-size: 40px; color: #898;
+         user-select: none; background: #f6fff6; }
+  #bottom { font-size: 28px; color: #595; padding: 40px; background: #ddf5dd; }
+  .line { margin: 0; padding: 14px 20px; border-bottom: 1px solid #dedfde; }
+</style>
+</head>
+<body>
+  <h1 id="who">PAGE B</h1>
+  <div class="pad">empty area — draw here</div>
+  <div id="filler"></div>
+  <div id="bottom">BOTTOM OF PAGE B</div>
+  <script>
+    const f = document.getElementById('filler');
+    for (let i = 0; i < 90; i++) {
+      const p = document.createElement('p');
+      p.className = 'line';
+      p.textContent = 'filler line ' + i;
+      f.appendChild(p);
+    }
+  </script>
+</body>
+</html>

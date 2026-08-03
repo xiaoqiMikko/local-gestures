@@ -1,0 +1,467 @@
+{
+  "extName": {
+    "message": "Local Gestures — Mouse Gestures, 100% Offline"
+  },
+  "extDesc": {
+    "message": "Mouse gestures, rocker, wheel, super drag and more. Zero network requests — nothing about your browsing ever leaves this machine."
+  },
+  "tagline": {
+    "message": "Never phones home."
+  },
+  "optionsTitle": {
+    "message": "Local Gestures settings"
+  },
+  "cmdSlot1": {
+    "message": "Shortcut slot 1"
+  },
+  "cmdSlot2": {
+    "message": "Shortcut slot 2"
+  },
+  "cmdSlot3": {
+    "message": "Shortcut slot 3"
+  },
+  "cmdSlot4": {
+    "message": "Shortcut slot 4"
+  },
+  "tabGestures": {
+    "message": "Gestures"
+  },
+  "tabPopup": {
+    "message": "Popup wheel"
+  },
+  "tabMouse": {
+    "message": "Mouse"
+  },
+  "tabDrag": {
+    "message": "Drag"
+  },
+  "tabEntries": {
+    "message": "Other triggers"
+  },
+  "tabLook": {
+    "message": "Appearance"
+  },
+  "tabAdvanced": {
+    "message": "Advanced"
+  },
+  "optEnabled": {
+    "message": "Enabled"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "added": {
+    "message": "Added"
+  },
+  "replaced": {
+    "message": "Replaced"
+  },
+  "imported": {
+    "message": "Settings imported"
+  },
+  "importFailed": {
+    "message": "Could not read that file"
+  },
+  "resetDone": {
+    "message": "Reset to defaults"
+  },
+  "confirmReset": {
+    "message": "Reset every setting to its default?"
+  },
+  "warnNoGesture": {
+    "message": "Draw or compose a gesture first."
+  },
+  "hintUnassigned": {
+    "message": "unassigned"
+  },
+  "btnDelete": {
+    "message": "Delete"
+  },
+  "optStrokeEnabled": {
+    "message": "Stroke gestures"
+  },
+  "noteStroke": {
+    "message": "Hold the gesture button and draw a shape."
+  },
+  "optButton": {
+    "message": "Gesture button"
+  },
+  "btnRight": {
+    "message": "Right button"
+  },
+  "btnMiddle": {
+    "message": "Middle button"
+  },
+  "padHint": {
+    "message": "Hold the gesture button and draw here"
+  },
+  "lblGesture": {
+    "message": "Gesture"
+  },
+  "lblAction": {
+    "message": "Action"
+  },
+  "btnClear": {
+    "message": "Clear"
+  },
+  "btnAdd": {
+    "message": "Add / replace"
+  },
+  "colGesture": {
+    "message": "Gesture"
+  },
+  "colAction": {
+    "message": "Action"
+  },
+  "colDirection": {
+    "message": "Direction"
+  },
+  "optPopup": {
+    "message": "Popup wheel"
+  },
+  "notePopup": {
+    "message": "Hold the gesture button still — without moving — and eight actions fan out around the cursor. Move toward one and release."
+  },
+  "optPopupDelay": {
+    "message": "Hold time before it appears (ms)"
+  },
+  "optRocker": {
+    "message": "Rocker gestures"
+  },
+  "noteRocker": {
+    "message": "Hold one mouse button and click the other."
+  },
+  "optRockerLR": {
+    "message": "Hold left, click right"
+  },
+  "optRockerRL": {
+    "message": "Hold right, click left"
+  },
+  "optWheel": {
+    "message": "Wheel gestures"
+  },
+  "noteWheel": {
+    "message": "Hold the gesture button and turn the wheel."
+  },
+  "optWheelUp": {
+    "message": "Wheel up"
+  },
+  "optWheelDown": {
+    "message": "Wheel down"
+  },
+  "optDoubleClick": {
+    "message": "Double click action"
+  },
+  "noteDoubleClick": {
+    "message": "Only fires on empty page area — never on text, links or form controls."
+  },
+  "optDoubleClickAction": {
+    "message": "On double click"
+  },
+  "optSimpleDrag": {
+    "message": "Simple drag"
+  },
+  "noteSimpleDrag": {
+    "message": "Straight left-button drag on empty page area. Off by default because it competes with selecting text."
+  },
+  "optSimpleDragDist": {
+    "message": "Minimum distance (px)"
+  },
+  "optSuperDrag": {
+    "message": "Super drag"
+  },
+  "noteDrag": {
+    "message": "Drag a link, an image or selected text. The direction you drag decides what happens."
+  },
+  "optDragDist": {
+    "message": "Minimum drag distance (px)"
+  },
+  "hdrDragLink": {
+    "message": "Links"
+  },
+  "hdrDragImage": {
+    "message": "Images"
+  },
+  "hdrDragText": {
+    "message": "Selected text"
+  },
+  "noteSearch": {
+    "message": "Search uses whatever engine Chrome is already set to. This extension contains no search URL of its own."
+  },
+  "hdrIcon": {
+    "message": "Toolbar icon"
+  },
+  "optIconAction": {
+    "message": "Clicking the icon does"
+  },
+  "hdrContext": {
+    "message": "Context menu"
+  },
+  "optContextMenu": {
+    "message": "Add actions to the right-click menu"
+  },
+  "btnAddItem": {
+    "message": "Add item"
+  },
+  "hdrKeys": {
+    "message": "Keyboard shortcuts"
+  },
+  "noteKeys": {
+    "message": "Pick what each slot does here; assign the actual key combinations on Chrome's shortcuts page."
+  },
+  "btnOpenShortcuts": {
+    "message": "Open Chrome shortcut settings"
+  },
+  "hdrTouch": {
+    "message": "Touch screen"
+  },
+  "optTouch": {
+    "message": "Touch gestures"
+  },
+  "noteTouch": {
+    "message": "Uses the same stroke table as the mouse."
+  },
+  "optTouchFingers": {
+    "message": "Fingers"
+  },
+  "optTrail": {
+    "message": "Show gesture trail"
+  },
+  "optTrailColor": {
+    "message": "Trail colour"
+  },
+  "optTrailWidth": {
+    "message": "Trail width"
+  },
+  "optHint": {
+    "message": "Show action hint"
+  },
+  "optHintPos": {
+    "message": "Hint position"
+  },
+  "posBottom": {
+    "message": "Bottom"
+  },
+  "posTop": {
+    "message": "Top"
+  },
+  "optSuppress": {
+    "message": "Suppress the context menu after a gesture"
+  },
+  "optMinDistance": {
+    "message": "Direction threshold (px)"
+  },
+  "optMinStroke": {
+    "message": "Minimum stroke length (px)"
+  },
+  "optHomeUrl": {
+    "message": "Home URL"
+  },
+  "optExcludes": {
+    "message": "Disabled on these URLs (one pattern per line, * allowed)"
+  },
+  "optPerms": {
+    "message": "Optional permissions"
+  },
+  "permDownloads": {
+    "message": "Downloads — only needed to save dragged images"
+  },
+  "permBookmarks": {
+    "message": "Bookmarks — only needed for the \"Add bookmark\" action"
+  },
+  "notePerms": {
+    "message": "Both are off by default and can be revoked here at any time."
+  },
+  "btnExport": {
+    "message": "Export settings"
+  },
+  "btnImport": {
+    "message": "Import settings"
+  },
+  "btnReset": {
+    "message": "Reset to defaults"
+  },
+  "group_nav": {
+    "message": "Navigation"
+  },
+  "group_tab": {
+    "message": "Tabs"
+  },
+  "group_win": {
+    "message": "Windows"
+  },
+  "group_scroll": {
+    "message": "Scrolling"
+  },
+  "group_zoom": {
+    "message": "Zoom"
+  },
+  "group_page": {
+    "message": "Page"
+  },
+  "group_misc": {
+    "message": "Other"
+  },
+  "drag_newTabBg": {
+    "message": "Open in background tab"
+  },
+  "drag_newTabFg": {
+    "message": "Open in foreground tab"
+  },
+  "drag_newWindow": {
+    "message": "Open in new window"
+  },
+  "drag_copy": {
+    "message": "Copy to clipboard"
+  },
+  "drag_download": {
+    "message": "Download"
+  },
+  "drag_searchBg": {
+    "message": "Search in background tab"
+  },
+  "drag_searchFg": {
+    "message": "Search in foreground tab"
+  },
+  "drag_none": {
+    "message": "Do nothing"
+  },
+  "action_back": {
+    "message": "Back"
+  },
+  "action_forward": {
+    "message": "Forward"
+  },
+  "action_reload": {
+    "message": "Reload"
+  },
+  "action_reloadHard": {
+    "message": "Hard reload (ignore cache)"
+  },
+  "action_stop": {
+    "message": "Stop loading"
+  },
+  "action_home": {
+    "message": "Home page"
+  },
+  "action_parentDir": {
+    "message": "Parent directory"
+  },
+  "action_siteRoot": {
+    "message": "Site root"
+  },
+  "action_newTab": {
+    "message": "New tab"
+  },
+  "action_closeTab": {
+    "message": "Close tab"
+  },
+  "action_reopenTab": {
+    "message": "Reopen closed tab"
+  },
+  "action_duplicateTab": {
+    "message": "Duplicate tab"
+  },
+  "action_togglePin": {
+    "message": "Pin / unpin tab"
+  },
+  "action_toggleMute": {
+    "message": "Mute / unmute tab"
+  },
+  "action_prevTab": {
+    "message": "Previous tab"
+  },
+  "action_nextTab": {
+    "message": "Next tab"
+  },
+  "action_firstTab": {
+    "message": "First tab"
+  },
+  "action_lastTab": {
+    "message": "Last tab"
+  },
+  "action_lastUsedTab": {
+    "message": "Last used tab"
+  },
+  "action_closeOtherTabs": {
+    "message": "Close other tabs"
+  },
+  "action_closeRightTabs": {
+    "message": "Close tabs to the right"
+  },
+  "action_closeLeftTabs": {
+    "message": "Close tabs to the left"
+  },
+  "action_moveTabLeft": {
+    "message": "Move tab left"
+  },
+  "action_moveTabRight": {
+    "message": "Move tab right"
+  },
+  "action_detachTab": {
+    "message": "Move tab to new window"
+  },
+  "action_newWindow": {
+    "message": "New window"
+  },
+  "action_newIncognito": {
+    "message": "New incognito window"
+  },
+  "action_closeWindow": {
+    "message": "Close window"
+  },
+  "action_minimizeWindow": {
+    "message": "Minimise window"
+  },
+  "action_toggleMaximize": {
+    "message": "Maximise / restore"
+  },
+  "action_toggleFullscreen": {
+    "message": "Toggle full screen"
+  },
+  "action_scrollTop": {
+    "message": "Scroll to top"
+  },
+  "action_scrollBottom": {
+    "message": "Scroll to bottom"
+  },
+  "action_scrollPageUp": {
+    "message": "Page up"
+  },
+  "action_scrollPageDown": {
+    "message": "Page down"
+  },
+  "action_zoomIn": {
+    "message": "Zoom in"
+  },
+  "action_zoomOut": {
+    "message": "Zoom out"
+  },
+  "action_zoomReset": {
+    "message": "Reset zoom"
+  },
+  "action_viewSource": {
+    "message": "View page source"
+  },
+  "action_print": {
+    "message": "Print"
+  },
+  "action_copyUrl": {
+    "message": "Copy URL"
+  },
+  "action_copyTitle": {
+    "message": "Copy title"
+  },
+  "action_copyTitleUrl": {
+    "message": "Copy title and URL"
+  },
+  "action_addBookmark": {
+    "message": "Add bookmark"
+  },
+  "action_openOptions": {
+    "message": "Open settings"
+  },
+  "action_none": {
+    "message": "Do nothing"
+  }
+}

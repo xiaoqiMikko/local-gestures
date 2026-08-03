@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "short_name": "Local Gestures",
+  "version": "0.1.0",
+  "default_locale": "en",
+  "description": "__MSG_extDesc__",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "match_about_blank": true,
+      "run_at": "document_start",
+      "js": [
+        "src/common/actions.js",
+        "src/common/defaults.js",
+        "src/content/recognizer.js",
+        "src/content/overlay.js",
+        "src/content/popup-wheel.js",
+        "src/content/content.js"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "__MSG_extName__"
+  },
+  "commands": {
+    "slot1": {
+      "suggested_key": { "default": "Alt+Shift+1" },
+      "description": "__MSG_cmdSlot1__"
+    },
+    "slot2": {
+      "suggested_key": { "default": "Alt+Shift+2" },
+      "description": "__MSG_cmdSlot2__"
+    },
+    "slot3": {
+      "suggested_key": { "default": "Alt+Shift+3" },
+      "description": "__MSG_cmdSlot3__"
+    },
+    "slot4": {
+      "suggested_key": { "default": "Alt+Shift+4" },
+      "description": "__MSG_cmdSlot4__"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "sessions",
+    "search",
+    "contextMenus"
+  ],
+  "optional_permissions": [
+    "downloads",
+    "bookmarks"
+  ],
+  "minimum_chrome_version": "116"
+}

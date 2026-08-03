@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="optionsTitle">Local Gestures</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <img src="../../icons/icon48.png" alt="" width="28" height="28">
+      <div>
+        <h1 data-i18n="extName">Local Gestures</h1>
+        <p class="tag" data-i18n="tagline">Never phones home.</p>
+      </div>
+    </div>
+    <label class="switch big">
+      <input type="checkbox" id="enabled">
+      <span data-i18n="optEnabled">Enabled</span>
+    </label>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-panel="p-gestures" data-i18n="tabGestures">Gestures</button>
+    <button class="tab" data-panel="p-popup" data-i18n="tabPopup">Popup wheel</button>
+    <button class="tab" data-panel="p-mouse" data-i18n="tabMouse">Mouse</button>
+    <button class="tab" data-panel="p-drag" data-i18n="tabDrag">Drag</button>
+    <button class="tab" data-panel="p-entries" data-i18n="tabEntries">Other triggers</button>
+    <button class="tab" data-panel="p-look" data-i18n="tabLook">Appearance</button>
+    <button class="tab" data-panel="p-adv" data-i18n="tabAdvanced">Advanced</button>
+  </nav>
+
+  <!-- ======================================================= gestures -->
+  <section class="panel active" id="p-gestures">
+    <label class="switch">
+      <input type="checkbox" id="gesturesEnabled">
+      <span data-i18n="optStrokeEnabled">Stroke gestures</span>
+    </label>
+    <p class="note" data-i18n="noteStroke">Hold the gesture button and draw a shape.</p>
+
+    <div class="row">
+      <label data-i18n="optButton">Gesture button</label>
+      <select id="gestureButton">
+        <option value="2" data-i18n="btnRight">Right button</option>
+        <option value="1" data-i18n="btnMiddle">Middle button</option>
+      </select>
+    </div>
+
+    <div class="draw-wrap">
+      <div class="pad" id="pad">
+        <span class="pad-hint" data-i18n="padHint">Hold the gesture button and draw here</span>
+        <canvas id="padCanvas"></canvas>
+      </div>
+      <div class="draw-side">
+        <div class="field">
+          <label data-i18n="lblGesture">Gesture</label>
+          <div class="gesture-input">
+            <output id="newGesture" class="arrows">—</output>
+            <div class="dpad">
+              <button data-dir="U">↑</button>
+              <button data-dir="L">←</button>
+              <button data-dir="D">↓</button>
+              <button data-dir="R">→</button>
+              <button id="clearGesture" class="wide" data-i18n="btnClear">Clear</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="lblAction">Action</label>
+          <select id="newAction"></select>
+        </div>
+        <button id="addGesture" class="primary" data-i18n="btnAdd">Add / replace</button>
+        <p class="warn" id="addWarn"></p>
+      </div>
+    </div>
+
+    <table class="grid" id="gestureTable">
+      <thead>
+        <tr>
+          <th data-i18n="colGesture">Gesture</th>
+          <th data-i18n="colAction">Action</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- ========================================================== popup -->
+  <section class="panel" id="p-popup">
+    <label class="switch">
+      <input type="checkbox" id="popupEnabled">
+      <span data-i18n="optPopup">Popup wheel</span>
+    </label>
+    <p class="note" data-i18n="notePopup">Hold the gesture button still — without moving — and eight actions fan out around the cursor. Move toward one and release.</p>
+
+    <div class="row">
+      <label data-i18n="optPopupDelay">Hold time before it appears (ms)</label>
+      <input type="number" id="popupDelay" min="120" max="1500" step="10">
+    </div>
+
+    <div class="wheel-grid" id="popupGrid"></div>
+  </section>
+
+  <!-- ========================================================== mouse -->
+  <section class="panel" id="p-mouse">
+    <label class="switch">
+      <input type="checkbox" id="rockerEnabled">
+      <span data-i18n="optRocker">Rocker gestures</span>
+    </label>
+    <p class="note" data-i18n="noteRocker">Hold one mouse button and click the other.</p>
+    <div class="row">
+      <label data-i18n="optRockerLR">Hold left, click right</label>
+      <select id="rockerLeftRight"></select>
+    </div>
+    <div class="row">
+      <label data-i18n="optRockerRL">Hold right, click left</label>
+      <select id="rockerRightLeft"></select>
+    </div>
+
+    <hr>
+
+    <label class="switch">
+      <input type="checkbox" id="wheelEnabled">
+      <span data-i18n="optWheel">Wheel gestures</span>
+    </label>
+    <p class="note" data-i18n="noteWheel">Hold the gesture button and turn the wheel.</p>
+    <div class="row">
+      <label data-i18n="optWheelUp">Wheel up</label>
+      <select id="wheelUp"></select>
+    </div>
+    <div class="row">
+      <label data-i18n="optWheelDown">Wheel down</label>
+      <select id="wheelDown"></select>
+    </div>
+
+    <hr>
+
+    <label class="switch">
+      <input type="checkbox" id="doubleClickEnabled">
+      <span data-i18n="optDoubleClick">Double click action</span>
+    </label>
+    <p class="note" data-i18n="noteDoubleClick">Only fires on empty page area — never on text, links or form controls.</p>
+    <div class="row">
+      <label data-i18n="optDoubleClickAction">On double click</label>
+      <select id="doubleClickAction"></select>
+    </div>
+
+    <hr>
+
+    <label class="switch">
+      <input type="checkbox" id="simpleDragEnabled">
+      <span data-i18n="optSimpleDrag">Simple drag</span>
+    </label>
+    <p class="note" data-i18n="noteSimpleDrag">Straight left-button drag on empty page area. Off by default because it competes with selecting text.</p>
+    <div class="row">
+      <label data-i18n="optSimpleDragDist">Minimum distance (px)</label>
+      <input type="number" id="simpleDragDistance" min="20" max="400" step="5">
+    </div>
+    <table class="grid dirs" data-map="simpleDrag">
+      <thead>
+        <tr><th data-i18n="colDirection">Direction</th><th data-i18n="colAction">Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- =========================================================== drag -->
+  <section class="panel" id="p-drag">
+    <label class="switch">
+      <input type="checkbox" id="superDragEnabled">
+      <span data-i18n="optSuperDrag">Super drag</span>
+    </label>
+    <p class="note" data-i18n="noteDrag">Drag a link, an image or selected text. The direction you drag decides what happens.</p>
+
+    <div class="row">
+      <label data-i18n="optDragDist">Minimum drag distance (px)</label>
+      <input type="number" id="superDragDistance" min="10" max="400" step="5">
+    </div>
+
+    <h3 data-i18n="hdrDragLink">Links</h3>
+    <table class="grid dirs" data-map="dragLink">
+      <thead>
+        <tr><th data-i18n="colDirection">Direction</th><th data-i18n="colAction">Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3 data-i18n="hdrDragImage">Images</h3>
+    <table class="grid dirs" data-map="dragImage">
+      <thead>
+        <tr><th data-i18n="colDirection">Direction</th><th data-i18n="colAction">Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3 data-i18n="hdrDragText">Selected text</h3>
+    <table class="grid dirs" data-map="dragText">
+      <thead>
+        <tr><th data-i18n="colDirection">Direction</th><th data-i18n="colAction">Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p class="note" data-i18n="noteSearch">Search uses whatever engine Chrome is already set to. This extension contains no search URL of its own.</p>
+  </section>
+
+  <!-- ======================================================== entries -->
+  <section class="panel" id="p-entries">
+    <h3 data-i18n="hdrIcon">Toolbar icon</h3>
+    <div class="row">
+      <label data-i18n="optIconAction">Clicking the icon does</label>
+      <select id="iconAction"></select>
+    </div>
+
+    <hr>
+
+    <h3 data-i18n="hdrContext">Context menu</h3>
+    <label class="switch">
+      <input type="checkbox" id="contextMenuEnabled">
+      <span data-i18n="optContextMenu">Add actions to the right-click menu</span>
+    </label>
+    <div id="contextItems"></div>
+    <button id="addContextItem" data-i18n="btnAddItem">Add item</button>
+
+    <hr>
+
+    <h3 data-i18n="hdrKeys">Keyboard shortcuts</h3>
+    <p class="note" data-i18n="noteKeys">Pick what each slot does here; assign the actual key combinations on Chrome's shortcuts page.</p>
+    <div class="row">
+      <label>Alt+Shift+1</label>
+      <select id="slot1"></select>
+    </div>
+    <div class="row">
+      <label>Alt+Shift+2</label>
+      <select id="slot2"></select>
+    </div>
+    <div class="row">
+      <label>Alt+Shift+3</label>
+      <select id="slot3"></select>
+    </div>
+    <div class="row">
+      <label>Alt+Shift+4</label>
+      <select id="slot4"></select>
+    </div>
+    <button id="openShortcuts" data-i18n="btnOpenShortcuts">Open Chrome shortcut settings</button>
+
+    <hr>
+
+    <h3 data-i18n="hdrTouch">Touch screen</h3>
+    <label class="switch">
+      <input type="checkbox" id="touchEnabled">
+      <span data-i18n="optTouch">Touch gestures</span>
+    </label>
+    <p class="note" data-i18n="noteTouch">Uses the same stroke table as the mouse.</p>
+    <div class="row">
+      <label data-i18n="optTouchFingers">Fingers</label>
+      <select id="touchFingers">
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- ===================================================== appearance -->
+  <section class="panel" id="p-look">
+    <label class="switch">
+      <input type="checkbox" id="trailEnabled">
+      <span data-i18n="optTrail">Show gesture trail</span>
+    </label>
+    <div class="row">
+      <label data-i18n="optTrailColor">Trail colour</label>
+      <input type="color" id="trailColor">
+    </div>
+    <div class="row">
+      <label data-i18n="optTrailWidth">Trail width</label>
+      <input type="number" id="trailWidth" min="1" max="12" step="1">
+    </div>
+
+    <hr>
+
+    <label class="switch">
+      <input type="checkbox" id="hintEnabled">
+      <span data-i18n="optHint">Show action hint</span>
+    </label>
+    <div class="row">
+      <label data-i18n="optHintPos">Hint position</label>
+      <select id="hintPosition">
+        <option value="bottom" data-i18n="posBottom">Bottom</option>
+        <option value="top" data-i18n="posTop">Top</option>
+      </select>
+    </div>
+
+    <hr>
+
+    <label class="switch">
+      <input type="checkbox" id="suppressContextMenu">
+      <span data-i18n="optSuppress">Suppress the context menu after a gesture</span>
+    </label>
+  </section>
+
+  <!-- ======================================================= advanced -->
+  <section class="panel" id="p-adv">
+    <div class="row">
+      <label data-i18n="optMinDistance">Direction threshold (px)</label>
+      <input type="number" id="minDistance" min="4" max="120" step="1">
+    </div>
+    <div class="row">
+      <label data-i18n="optMinStroke">Minimum stroke length (px)</label>
+      <input type="number" id="minStroke" min="4" max="300" step="1">
+    </div>
+    <div class="row">
+      <label data-i18n="optHomeUrl">Home URL</label>
+      <input type="text" id="homeUrl" placeholder="https://…">
+    </div>
+
+    <div class="field">
+      <label data-i18n="optExcludes">Disabled on these URLs (one pattern per line, * allowed)</label>
+      <textarea id="excludes" rows="5" spellcheck="false"
+                placeholder="https://example.com/*"></textarea>
+    </div>
+
+    <hr>
+
+    <div class="field">
+      <label data-i18n="optPerms">Optional permissions</label>
+      <label class="switch">
+        <input type="checkbox" id="permDownloads">
+        <span data-i18n="permDownloads">Downloads — only needed to save dragged images</span>
+      </label>
+      <label class="switch">
+        <input type="checkbox" id="permBookmarks">
+        <span data-i18n="permBookmarks">Bookmarks — only needed for the "Add bookmark" action</span>
+      </label>
+      <p class="note" data-i18n="notePerms">Both are off by default and can be revoked here at any time.</p>
+    </div>
+
+    <hr>
+
+    <div class="actions">
+      <button id="exportBtn" data-i18n="btnExport">Export settings</button>
+      <button id="importBtn" data-i18n="btnImport">Import settings</button>
+      <input type="file" id="importFile" accept="application/json" hidden>
+      <button id="resetBtn" class="danger" data-i18n="btnReset">Reset to defaults</button>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="../common/actions.js"></script>
+  <script src="../common/defaults.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
