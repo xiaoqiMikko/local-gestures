@@ -467,12 +467,13 @@ with sync_playwright() as p:
     wins1 = sw.evaluate("() => chrome.windows.getAll().then(w => w.length)")
     check("newWindow", wins1 == wins0 + 1, f"{wins0} -> {wins1}")
 
-    # Creating an incognito window makes Playwright lose target tracking, and
-    # it then kills the Chromium *it* launched — the extension is fine. Proven
-    # on the real installed Chrome with tools/probe_incognito.py, which owns
-    # the process itself so Playwright cannot kill it: browser stayed alive,
-    # incognito window appeared. Running it here would end the whole suite.
-    skip("newIncognito", "见 tools/probe_incognito.py(真实 Chrome 上已验证通过)")
+    # Running this ends the whole suite: Playwright loses target tracking when
+    # an incognito window appears and kills the Chromium it launched.
+    # Attaching to a self-launched Chrome would sidestep that, but Chrome 137+
+    # removed the --load-extension switch, so the extension cannot be
+    # installed without a human clicking through chrome://extensions.
+    # => NOT verified automatically. See MANUAL-CHECKS.md.
+    skip("newIncognito", "自动化无法验证,需人工确认 —— 见 MANUAL-CHECKS.md")
 
     tgt = active_tab()
     st0 = sw.evaluate("(w) => chrome.windows.get(w).then(x => x.state)",

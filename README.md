@@ -1,5 +1,7 @@
 # Local Gestures
 
+English · [简体中文](README.zh-CN.md)
+
 Mouse gestures for Chrome that never talk to a server.
 
 **Zero network requests. No analytics. No account. No remote config.**
@@ -133,7 +135,17 @@ python tools/demo.py       # opens a browser on the demo page to try by hand
 
 The e2e suite asserts observable effects — URL changed, tab count changed,
 scroll position reached the document's own maximum — rather than "the handler
-ran". 27 checks, all green.
+ran". 109 checks. Two actions cannot be driven by automation at all and are
+listed in [MANUAL-CHECKS.md](MANUAL-CHECKS.md) rather than quietly skipped.
+
+> ⚠️ **Do not use Playwright's bundled Chromium to judge anything about
+> rendering.** On some machines it starts without the user-agent stylesheet,
+> so every block element computes to `display: inline` — tables collapse into
+> a single line and `<style>` tags are painted as body text. The page looks
+> completely broken while being perfectly fine in real Chrome. Anything that
+> captures or measures layout (`gen_screenshots.py`) uses the installed
+> Chrome and asserts `getComputedStyle(document.body).display === 'block'`
+> before shooting.
 
 Adding an action means touching four places, and `verify.py` will tell you if
 you miss one:
