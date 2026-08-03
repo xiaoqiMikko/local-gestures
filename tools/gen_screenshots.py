@@ -98,6 +98,9 @@ def worker(ctx, page):
 for locale, tag in LOCALES:
     print(f"\n=== {locale} ===")
     profile = Path(gettempdir()) / f"lg-shot-{tag}-{int(time.time())}"
+    # The extension localises itself from --lang, but the page behind it is a
+    # fixture and would otherwise stay Chinese in the English screenshots.
+    demo = f"{BASE}/demo.html" + ("?lang=en" if tag == "en" else "")
 
     with sync_playwright() as p:
         ctx = p.chromium.launch_persistent_context(
@@ -115,7 +118,7 @@ for locale, tag in LOCALES:
         )
         try:
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
-            page.goto(f"{BASE}/demo.html")
+            page.goto(demo)
             page.wait_for_timeout(1200)
             sanity(page)
 
@@ -147,7 +150,7 @@ for locale, tag in LOCALES:
             sw.evaluate("() => chrome.storage.local.set("
                         "{ popupEnabled: true, popupDelay: 250 })")
             page.wait_for_timeout(500)
-            page.goto(f"{BASE}/demo.html")
+            page.goto(demo)
             page.wait_for_timeout(900)
             page.mouse.move(640, 420)
             page.mouse.down(button="right")
@@ -174,7 +177,7 @@ for locale, tag in LOCALES:
 
             opt.locator("#tabs .tab").nth(6).click()
             opt.wait_for_timeout(500)
-            shoot(opt, OUT / tag / "5-settings-privacy.png")
+            shoot(opt, OUT / tag / "5-settings-advanced.png")
         finally:
             ctx.close()
 

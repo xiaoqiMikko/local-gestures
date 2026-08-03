@@ -36,116 +36,132 @@
 </head>
 <body>
 <header>
-  <h1>Local Gestures — 功能演示</h1>
-  <p>在本页任意空白处按住<strong>鼠标右键</strong>画手势即可。松开右键执行,不弹右键菜单。</p>
+  <h1 data-en="Local Gestures — Live demo">Local Gestures — 功能演示</h1>
+  <p data-en="Hold the <strong>right mouse button</strong> anywhere on this page and draw. Release to run — no context menu appears.">在本页任意空白处按住<strong>鼠标右键</strong>画手势即可。松开右键执行,不弹右键菜单。</p>
 </header>
 
 <main>
-  <h2>① 笔画手势 · 在下面这块区域画</h2>
-  <div class="zone">按住右键,在这里画 ← 或 ↓→</div>
+  <h2 data-en="① Stroke gestures · draw inside the area below">① 笔画手势 · 在下面这块区域画</h2>
+  <div class="zone" data-en="Hold the right button and draw ← or ↓→ here">按住右键,在这里画 ← 或 ↓→</div>
   <div class="card">
     <table>
-      <thead><tr><th>手势</th><th>动作</th><th>怎么画</th></tr></thead>
+      <thead><tr><th data-en="Gesture">手势</th><th data-en="Action">动作</th><th data-en="How to draw">怎么画</th></tr></thead>
       <tbody>
-        <tr><td class="g">←</td><td>后退</td><td>按住右键向左划</td></tr>
-        <tr><td class="g">→</td><td>前进</td><td>按住右键向右划</td></tr>
-        <tr><td class="g">↑</td><td>滚到顶部</td><td>向上划</td></tr>
-        <tr><td class="g">↓</td><td>滚到底部</td><td>向下划</td></tr>
-        <tr><td class="g">↑↓</td><td>刷新</td><td>先上后下</td></tr>
-        <tr><td class="g">↓↑</td><td>恢复关闭的标签页</td><td>先下后上</td></tr>
-        <tr><td class="g">↓→</td><td>关闭标签页</td><td>先下后右(经典)</td></tr>
-        <tr><td class="g">↑→</td><td>新建标签页</td><td>先上后右</td></tr>
-        <tr><td class="g">←→</td><td>下一个标签页</td><td>先左后右</td></tr>
-        <tr><td class="g">→←</td><td>上一个标签页</td><td>先右后左</td></tr>
-        <tr><td class="g">↓←</td><td>复制标签页</td><td>先下后左</td></tr>
-        <tr><td class="g">↑←</td><td>固定 / 取消固定</td><td>先上后左</td></tr>
-        <tr><td class="g">→↓</td><td>静音 / 取消静音</td><td>先右后下</td></tr>
-        <tr><td class="g">←↑</td><td>重置缩放</td><td>先左后上</td></tr>
-        <tr><td class="g">→↑</td><td>切换全屏</td><td>先右后上</td></tr>
-        <tr><td class="g">←↓</td><td>新建窗口</td><td>先左后下</td></tr>
-        <tr><td class="g">→↑←</td><td>关闭其他标签页</td><td>三段手势</td></tr>
-        <tr><td class="g">←↓→</td><td>查看网页源码</td><td>三段手势</td></tr>
-        <tr><td class="g">↑↓↑</td><td>强制刷新</td><td>三段手势</td></tr>
+        <tr><td class="g">←</td><td data-en="Back">后退</td><td data-en="hold right, drag left">按住右键向左划</td></tr>
+        <tr><td class="g">→</td><td data-en="Forward">前进</td><td data-en="hold right, drag right">按住右键向右划</td></tr>
+        <tr><td class="g">↑</td><td data-en="Scroll to top">滚到顶部</td><td data-en="drag up">向上划</td></tr>
+        <tr><td class="g">↓</td><td data-en="Scroll to bottom">滚到底部</td><td data-en="drag down">向下划</td></tr>
+        <tr><td class="g">↑↓</td><td data-en="Reload">刷新</td><td data-en="up then down">先上后下</td></tr>
+        <tr><td class="g">↓↑</td><td data-en="Reopen closed tab">恢复关闭的标签页</td><td data-en="down then up">先下后上</td></tr>
+        <tr><td class="g">↓→</td><td data-en="Close tab">关闭标签页</td><td data-en="down then right (the classic)">先下后右(经典)</td></tr>
+        <tr><td class="g">↑→</td><td data-en="New tab">新建标签页</td><td data-en="up then right">先上后右</td></tr>
+        <tr><td class="g">←→</td><td data-en="Next tab">下一个标签页</td><td data-en="left then right">先左后右</td></tr>
+        <tr><td class="g">→←</td><td data-en="Previous tab">上一个标签页</td><td data-en="right then left">先右后左</td></tr>
+        <tr><td class="g">↓←</td><td data-en="Duplicate tab">复制标签页</td><td data-en="down then left">先下后左</td></tr>
+        <tr><td class="g">↑←</td><td data-en="Pin / unpin">固定 / 取消固定</td><td data-en="up then left">先上后左</td></tr>
+        <tr><td class="g">→↓</td><td data-en="Mute / unmute">静音 / 取消静音</td><td data-en="right then down">先右后下</td></tr>
+        <tr><td class="g">←↑</td><td data-en="Reset zoom">重置缩放</td><td data-en="left then up">先左后上</td></tr>
+        <tr><td class="g">→↑</td><td data-en="Toggle fullscreen">切换全屏</td><td data-en="right then up">先右后上</td></tr>
+        <tr><td class="g">←↓</td><td data-en="New window">新建窗口</td><td data-en="left then down">先左后下</td></tr>
+        <tr><td class="g">→↑←</td><td data-en="Close other tabs">关闭其他标签页</td><td data-en="three strokes">三段手势</td></tr>
+        <tr><td class="g">←↓→</td><td data-en="View page source">查看网页源码</td><td data-en="three strokes">三段手势</td></tr>
+        <tr><td class="g">↑↓↑</td><td data-en="Hard reload">强制刷新</td><td data-en="three strokes">三段手势</td></tr>
       </tbody>
     </table>
-    <p class="tip">画的时候会有蓝色轨迹,底部会实时显示将要执行的动作名。画到一半发现画错了,
+    <p class="tip" data-en="A blue trail follows the cursor and the action about to run is named at the bottom of the screen. Changed your mind mid-stroke? Scribble into a shape nothing is bound to and release — the hint turns red and nothing happens.">画的时候会有蓝色轨迹,底部会实时显示将要执行的动作名。画到一半发现画错了,
       随便乱划成一个没绑定的形状再松手即可 —— 提示会变红,不会执行任何动作。</p>
   </div>
 
-  <h2>② 摇杆手势 · 不用画</h2>
+  <h2 data-en="② Rocker gestures · nothing to draw">② 摇杆手势 · 不用画</h2>
   <div class="card">
     <table>
       <tbody>
-        <tr><td class="g">R→L</td><td><strong>按住右键,点一下左键</strong> → 后退</td></tr>
-        <tr><td class="g">L→R</td><td><strong>按住左键,点一下右键</strong> → 前进</td></tr>
+        <tr><td class="g">R→L</td><td data-en="<strong>Hold right, click left</strong> → back">
+          <strong>按住右键,点一下左键</strong> → 后退</td></tr>
+        <tr><td class="g">L→R</td><td data-en="<strong>Hold left, click right</strong> → forward">
+          <strong>按住左键,点一下右键</strong> → 前进</td></tr>
       </tbody>
     </table>
-    <p class="tip">这是最快的翻页方式,一只手就能连点。</p>
+    <p class="tip" data-en="The fastest way to move through history — one hand, repeatable.">这是最快的翻页方式,一只手就能连点。</p>
   </div>
 
-  <h2>③ 滚轮手势</h2>
+  <h2 data-en="③ Wheel gestures">③ 滚轮手势</h2>
   <div class="card">
-    <p><strong>按住右键不放,滚动滚轮</strong> —— 向上滚切上一个标签页,向下滚切下一个。</p>
-    <p class="tip">多开几个标签页再试,效果最明显。</p>
+    <p data-en="<strong>Hold the right button and turn the wheel</strong> — up switches to the previous tab, down to the next."><strong>按住右键不放,滚动滚轮</strong> —— 向上滚切上一个标签页,向下滚切下一个。</p>
+    <p class="tip" data-en="Open a few tabs first to see it.">多开几个标签页再试,效果最明显。</p>
   </div>
 
-  <h2>④ 超级拖拽 · 方向决定行为</h2>
+  <h2 data-en="④ Super drag · the direction picks the action">④ 超级拖拽 · 方向决定行为</h2>
   <div class="row2">
     <div class="drag">
-      <p><strong>拖这个链接:</strong></p>
+      <p data-en="<strong>Drag this link:</strong>"><strong>拖这个链接:</strong></p>
       <p><a href="https://example.com/">example.com</a></p>
-      <p class="tip">上=前台打开 · 下=后台打开 · 左=复制网址 · 右=新窗口打开</p>
+      <p class="tip" data-en="up = open · down = open in background · left = copy URL · right = open in a new window">上=前台打开 · 下=后台打开 · 左=复制网址 · 右=新窗口打开</p>
     </div>
     <div class="drag">
-      <p><strong>拖这张图:</strong></p>
-      <p><img src="pic.png" alt="演示图片"></p>
-      <p class="tip">上=前台打开 · 下=后台打开 · 左=复制地址 · 右=下载(需授权)</p>
+      <p data-en="<strong>Drag this image:</strong>"><strong>拖这张图:</strong></p>
+      <p><img src="pic.png" alt="demo image"></p>
+      <p class="tip" data-en="up = open · down = open in background · left = copy address · right = download (asks permission)">上=前台打开 · 下=后台打开 · 左=复制地址 · 右=下载(需授权)</p>
     </div>
   </div>
   <div class="drag" style="margin-top:16px">
-    <p><strong>选中这段文字然后拖走:</strong>鼠标手势扩展 隐私 开源</p>
-    <p class="tip">上=前台搜索 · 下=后台搜索 · 左=复制 · 右=后台搜索。
+    <p data-en="<strong>Select this text and drag it away:</strong> mouse gestures privacy open source"><strong>选中这段文字然后拖走:</strong>鼠标手势扩展 隐私 开源</p>
+    <p class="tip" data-en="up = search · down = search in background · left = copy · right = search in background. The search uses whatever default engine your browser is set to — this extension contains no search URL of its own.">上=前台搜索 · 下=后台搜索 · 左=复制 · 右=后台搜索。
       搜索用的是你 Chrome 里设的默认搜索引擎,扩展本身不含任何搜索网址。</p>
   </div>
 
-  <h2>⑤ 弹出轮盘(默认关闭,去设置里打开)</h2>
+  <h2 data-en="⑤ Popup wheel (off by default — enable it in settings)">⑤ 弹出轮盘(默认关闭,去设置里打开)</h2>
   <div class="card">
-    <p><strong>按住右键别动</strong>,约 0.35 秒后光标周围会展开 8 个动作,移向其中一个松手即可。</p>
-    <p class="tip">松手时如果还在圆心附近,就是取消,什么都不会发生。</p>
+    <p data-en="<strong>Hold the right button still</strong> and after about 0.35 s eight actions fan out around the cursor. Move onto one and release."><strong>按住右键别动</strong>,约 0.35 秒后光标周围会展开 8 个动作,移向其中一个松手即可。</p>
+    <p class="tip" data-en="Release near the centre and nothing happens — that is the cancel.">松手时如果还在圆心附近,就是取消,什么都不会发生。</p>
   </div>
 
-  <h2>⑥ 其他入口</h2>
+  <h2 data-en="⑥ Other triggers">⑥ 其他入口</h2>
   <div class="card">
     <table>
       <tbody>
-        <tr><td><strong>双击</strong></td><td>页面空白处双击执行动作(默认关闭)。双击文字仍然是选词,不会误触发。</td></tr>
-        <tr><td><strong>简单拖拽</strong></td><td>空白处按左键直线拖动(默认关闭,因为会和选文字冲突)。</td></tr>
-        <tr><td><strong>快捷键</strong></td><td><code>Alt+Shift+1~4</code>,四个槽位各绑一个动作。</td></tr>
-        <tr><td><strong>右键菜单</strong></td><td>可把常用动作加进右键菜单(默认关闭)。</td></tr>
-        <tr><td><strong>工具栏图标</strong></td><td>点击执行指定动作,默认是打开设置。</td></tr>
-        <tr><td><strong>触摸屏</strong></td><td>双指手势,和鼠标共用同一张手势表(默认关闭)。</td></tr>
+        <tr><td data-en="<strong>Double click</strong>"><strong>双击</strong></td><td data-en="Runs an action when you double-click empty page area (off by default). Double-clicking text still selects the word.">页面空白处双击执行动作(默认关闭)。双击文字仍然是选词,不会误触发。</td></tr>
+        <tr><td data-en="<strong>Simple drag</strong>"><strong>简单拖拽</strong></td><td data-en="Straight left-button drag on empty area (off by default — it competes with selecting text).">空白处按左键直线拖动(默认关闭,因为会和选文字冲突)。</td></tr>
+        <tr><td data-en="<strong>Keyboard shortcuts</strong>"><strong>快捷键</strong></td><td data-en="<code>Alt+Shift+1~4</code> — four slots, one action each."><code>Alt+Shift+1~4</code>,四个槽位各绑一个动作。</td></tr>
+        <tr><td data-en="<strong>Context menu</strong>"><strong>右键菜单</strong></td><td data-en="Chosen actions can be added to the right-click menu (off by default).">可把常用动作加进右键菜单(默认关闭)。</td></tr>
+        <tr><td data-en="<strong>Toolbar icon</strong>"><strong>工具栏图标</strong></td><td data-en="Clicking it runs an action of your choice; opens settings by default.">点击执行指定动作,默认是打开设置。</td></tr>
+        <tr><td data-en="<strong>Touch screen</strong>"><strong>触摸屏</strong></td><td data-en="Two-finger gestures, sharing the same gesture table as the mouse (off by default).">双指手势,和鼠标共用同一张手势表(默认关闭)。</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h2>⑦ 隐私这块可以自己验证</h2>
+  <h2 data-en="⑦ The privacy claim is yours to check">⑦ 隐私这块可以自己验证</h2>
   <div class="card">
-    <p>整个扩展没有任何联网代码。在源码目录里跑这一行就能自己确认:</p>
+    <p data-en="There is no networking code in the extension at all. One command in the source directory confirms it:">整个扩展没有任何联网代码。在源码目录里跑这一行就能自己确认:</p>
     <p><code>grep -rn "fetch(\|XMLHttpRequest\|WebSocket\|sendBeacon" src/</code></p>
-    <p class="tip">应该只匹配到注释里那句「绝不联网」的声明。权限里也没有
+    <p class="tip" data-en="The only match should be the comment stating that there are none. The manifest has no <code>host_permissions</code>, no <code>webRequest</code>, no <code>history</code>. Downloads and bookmarks are optional permissions, not requested at install — if you never use them, you are never asked.">应该只匹配到注释里那句「绝不联网」的声明。权限里也没有
       <code>host_permissions</code>、没有 <code>webRequest</code>、没有 <code>history</code>。
       下载和书签是可选权限,默认不申请,你不用就永远不会被要。</p>
   </div>
 
-  <h2>下面是填充内容,用来测试滚动手势</h2>
+  <h2 data-en="Filler below, so the scroll gestures have somewhere to go">下面是填充内容,用来测试滚动手势</h2>
   <div class="filler" id="filler"></div>
 </main>
 
 <script>
-  const f = document.getElementById('filler');
-  for (let i = 1; i <= 60; i++) {
-    const p = document.createElement('p');
-    p.textContent = '第 ' + i + ' 行 —— 往下拉,然后按住右键向上划试试「滚到顶部」。';
+  // ?lang=en swaps every data-en string in place. Kept as attributes on the
+  // real elements rather than a second copy of the page, so the two languages
+  // cannot drift into showing different features.
+  var EN = new URLSearchParams(location.search).get('lang') === 'en';
+  if (EN) {
+    document.documentElement.lang = 'en';
+    document.title = 'Local Gestures — Live demo';
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      el.innerHTML = el.getAttribute('data-en');
+    });
+  }
+
+  var f = document.getElementById('filler');
+  for (var i = 1; i <= 60; i++) {
+    var p = document.createElement('p');
+    p.textContent = EN
+      ? 'Line ' + i + ' — scroll down, then hold right and drag up for "scroll to top".'
+      : '第 ' + i + ' 行 —— 往下拉,然后按住右键向上划试试「滚到顶部」。';
     f.appendChild(p);
   }
 </script>

@@ -83,6 +83,22 @@ for old in PROFILE.parent.glob("lg-test-profile-*"):
         shutil.rmtree(old, ignore_errors=True)
 
 
+def dismiss_menu(page):
+    """Close the native context menu before measuring anything else.
+
+    Whenever the extension deliberately stands down (excluded site, master
+    switch off) the browser's own menu opens instead. An open native menu
+    swallows the next mouse press, so the following gesture silently does
+    nothing and the assertion after it fails — intermittently, depending on
+    how fast Escape lands. Escape alone proved not to be enough; a click on
+    empty page area is the belt to that suspenders.
+    """
+    page.keyboard.press("Escape")
+    page.wait_for_timeout(200)
+    page.mouse.click(700, 500)   # the same empty spot every gesture starts from
+    page.wait_for_timeout(300)
+
+
 def gesture(page, path, button="right", step=14):
     """Draw a stroke through the given waypoints."""
     x0, y0 = path[0]
@@ -741,7 +757,7 @@ with sync_playwright() as p:
     page.mouse.up(button="right")
     page.wait_for_timeout(400)
     check("单纯右键仍弹菜单", page.evaluate("() => window.__ctx") == 1)
-    page.keyboard.press("Escape")
+    dismiss_menu(page)
 
     # unbound gesture must do nothing
     page.goto(f"{BASE}/a.html")
@@ -1029,11 +1045,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(600)
     gesture(page, [(700, 500), (350, 500)])
     check("排除列表命中时不响应", page.url.endswith("b.html"), page.url)
-    # When the extension stands down, the real context menu opens — and an
-    # open menu swallows the next mouse press. Dismiss it or the following
-    # assertion measures the menu, not the extension.
-    page.keyboard.press("Escape")
-    page.wait_for_timeout(300)
+    dismiss_menu(page)
 
     print("     [diag] history.length =", page.evaluate("() => history.length"))
     cfg_set(excludes=["*never-match-me*"])
@@ -1044,7 +1056,7 @@ with sync_playwright() as p:
     if not hot_ok:
         # Distinguish "hot reload is broken" from "something else": if a
         # fresh page obeys the new config, only the live update failed.
-        page.keyboard.press("Escape")
+        dismiss_menu(page)
         page.reload()
         page.wait_for_load_state()
         page.wait_for_timeout(600)
@@ -1061,8 +1073,7 @@ with sync_playwright() as p:
     page.wait_for_timeout(500)
     gesture(page, [(700, 500), (350, 500)])
     check("总开关关闭后手势失效", page.url.endswith("b.html"), page.url)
-    page.keyboard.press("Escape")
-    page.wait_for_timeout(300)
+    dismiss_menu(page)
 
     cfg_set(enabled=True)
     page.wait_for_timeout(500)
