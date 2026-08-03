@@ -140,8 +140,12 @@ you miss one:
 
 1. `src/common/actions.js` — declare id, group, and where it runs
 2. `src/background/service-worker.js` or `src/content/content.js` — implement it
-3. `tools/gen_locales`-style entry in all three `_locales/*/messages.json`
+3. `tools/gen_locales.py` — add the three translations, then re-run it
 4. optionally a default binding in `src/common/defaults.js`
+
+Translations live in one table in `tools/gen_locales.py` and are generated into
+all three `_locales` folders, so the key sets cannot drift apart.
+Icons likewise come from `tools/gen_icons.py`.
 
 ## Feedback
 
