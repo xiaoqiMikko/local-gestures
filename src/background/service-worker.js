@@ -307,18 +307,37 @@ async function rebuildContextMenu() {
   }
 }
 
-chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-  if (!String(info.menuItemId).startsWith(MENU_PREFIX)) return;
-  const id = String(info.menuItemId).slice(MENU_PREFIX.length);
-  if (id === '__root') return;
-  const res = await runAction(id, tab ? { tab: tab } : null);
-  // Clipboard actions need a page to write from; the menu has none, so
-  // bounce the text back into the tab.
-  if (res && res.clipboard && tab && tab.id != null) {
+/**
+ * Run an action on behalf of a non-page trigger (menu, shortcut, icon) and
+ * relay anything the page has to finish — clipboard writes need a DOM, and a
+ * failure needs to be shown to the user rather than dropped.
+ */
+async function runAndRelay(id, tab) {
+  let res;
+  try {
+    res = await runAction(id, tab ? { tab: tab } : null);
+  } catch (e) {
+    res = { error: String((e && e.message) || e) };
+  }
+  if (!res || !tab || tab.id == null) return res;
+  if (res.clipboard) {
     chrome.tabs.sendMessage(tab.id, {
       type: 'lg-clipboard', value: res.clipboard
     }, () => void chrome.runtime.lastError);
   }
+  if (res.error) {
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'lg-error', value: res.error
+    }, () => void chrome.runtime.lastError);
+  }
+  return res;
+}
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+  if (!String(info.menuItemId).startsWith(MENU_PREFIX)) return;
+  const id = String(info.menuItemId).slice(MENU_PREFIX.length);
+  if (id === '__root') return;
+  await runAndRelay(id, tab);
 });
 
 // ------------------------------------------------------- keyboard shortcuts
@@ -327,15 +346,7 @@ chrome.commands.onCommand.addListener(async (command) => {
   const config = await self.LG_loadConfig();
   const id = (config.commandSlots || {})[command];
   if (!id || id === 'none') return;
-  const res = await runAction(id, null);
-  if (res && res.clipboard) {
-    const tab = await currentTab(null);
-    if (tab && tab.id != null) {
-      chrome.tabs.sendMessage(tab.id, {
-        type: 'lg-clipboard', value: res.clipboard
-      }, () => void chrome.runtime.lastError);
-    }
-  }
+  await runAndRelay(id, await currentTab(null));
 });
 
 // ------------------------------------------------------------------ wiring
@@ -374,11 +385,5 @@ chrome.storage.onChanged.addListener((changes, area) => {
 
 chrome.action.onClicked.addListener(async (tab) => {
   const config = await self.LG_loadConfig();
-  const id = config.iconAction || 'openOptions';
-  const res = await runAction(id, tab ? { tab: tab } : null);
-  if (res && res.clipboard && tab && tab.id != null) {
-    chrome.tabs.sendMessage(tab.id, {
-      type: 'lg-clipboard', value: res.clipboard
-    }, () => void chrome.runtime.lastError);
-  }
+  await runAndRelay(config.iconAction || 'openOptions', tab);
 });

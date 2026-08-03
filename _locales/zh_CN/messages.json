@@ -74,6 +74,18 @@
   "hintUnassigned": {
     "message": "未绑定"
   },
+  "errMissingPermission": {
+    "message": "这个动作需要额外权限 —— 请到扩展设置的「高级」里开启。"
+  },
+  "errBlockedScheme": {
+    "message": "这种类型的链接无法用这种方式打开。"
+  },
+  "errTabGone": {
+    "message": "那个标签页已经不存在了。"
+  },
+  "errFailed": {
+    "message": "动作没能执行成功。"
+  },
   "btnDelete": {
     "message": "删除"
   },

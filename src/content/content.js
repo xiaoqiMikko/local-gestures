@@ -124,11 +124,35 @@
     }
   }
 
+  /**
+   * Surface a failed action instead of swallowing it.
+   *
+   * A silent no-op is indistinguishable from a broken extension, and the
+   * most common cause — an optional permission that was never granted — is
+   * something only the user can fix, so they have to be told where.
+   */
+  function report(error) {
+    const s = String(error || '');
+    let msg;
+    if (s.indexOf('missing-permission:') === 0) {
+      msg = chrome.i18n.getMessage('errMissingPermission');
+    } else if (s === 'blocked-scheme') {
+      msg = chrome.i18n.getMessage('errBlockedScheme');
+    } else if (s === 'gone') {
+      msg = chrome.i18n.getMessage('errTabGone');
+    } else {
+      msg = chrome.i18n.getMessage('errFailed');
+    }
+    LGOverlay.toast(msg);
+  }
+
   async function execute(id) {
     if (!id || id === 'none') return;
     if (runPageAction(id)) return;
     const res = await send({ type: 'lg-exec', action: id });
-    if (res && res.clipboard) await writeClipboard(res.clipboard);
+    if (!res) return;                       // worker asleep mid-navigation
+    if (res.clipboard) await writeClipboard(res.clipboard);
+    if (res.error) report(res.error);
   }
 
   /** Dominant axis of a displacement, as a single U/D/L/R character. */
@@ -398,9 +422,10 @@
     if (!mode || mode === 'none') return;
     if (mode === 'copy') { await writeClipboard(info.value); return; }
 
-    await send({
+    const res = await send({
       type: 'lg-drag', mode: mode, value: info.value, kind: info.kind
     });
+    if (res && res.error) report(res.error);
   }
 
   // ----------------------------------------------------------------- touch
@@ -477,12 +502,13 @@
     self.LG_loadConfig().then(applyConfig);
   });
 
-  // The worker has no DOM, so clipboard writes triggered from the context
-  // menu or a keyboard shortcut come back here to be performed.
+  // The worker has no DOM, so anything needing one — writing the clipboard,
+  // showing a failure — is bounced back here by the context menu, keyboard
+  // shortcut and toolbar icon paths.
   chrome.runtime.onMessage.addListener((msg) => {
-    if (msg && msg.type === 'lg-clipboard' && window.top === window) {
-      writeClipboard(msg.value);
-    }
+    if (!msg || window.top !== window) return false;
+    if (msg.type === 'lg-clipboard') writeClipboard(msg.value);
+    else if (msg.type === 'lg-error') report(msg.value);
     return false;
   });
 })();

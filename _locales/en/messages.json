@@ -74,6 +74,18 @@
   "hintUnassigned": {
     "message": "unassigned"
   },
+  "errMissingPermission": {
+    "message": "This action needs an extra permission — turn it on in the extension's settings, under Advanced."
+  },
+  "errBlockedScheme": {
+    "message": "That link type cannot be opened this way."
+  },
+  "errTabGone": {
+    "message": "That tab no longer exists."
+  },
+  "errFailed": {
+    "message": "The action could not be completed."
+  },
   "btnDelete": {
     "message": "Delete"
   },

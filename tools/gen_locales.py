@@ -51,6 +51,25 @@ M = {
                       "请先画出或拼出一个手势。",
                       "請先畫出或組出一個手勢。"),
     "hintUnassigned": ("unassigned", "未绑定", "未綁定"),
+
+    # ---- failure messages shown on the page ------------------------------
+    "errMissingPermission": (
+        "This action needs an extra permission — turn it on in the extension's "
+        "settings, under Advanced.",
+        "这个动作需要额外权限 —— 请到扩展设置的「高级」里开启。",
+        "這個動作需要額外權限 —— 請到擴充功能設定的「進階」裡開啟。"),
+    "errBlockedScheme": (
+        "That link type cannot be opened this way.",
+        "这种类型的链接无法用这种方式打开。",
+        "這種類型的連結無法用這種方式開啟。"),
+    "errTabGone": (
+        "That tab no longer exists.",
+        "那个标签页已经不存在了。",
+        "那個分頁已經不存在了。"),
+    "errFailed": (
+        "The action could not be completed.",
+        "动作没能执行成功。",
+        "動作沒能執行成功。"),
     "btnDelete": ("Delete", "删除", "刪除"),
 
     # ---- stroke ---------------------------------------------------------

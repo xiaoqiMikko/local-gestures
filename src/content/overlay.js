@@ -9,6 +9,7 @@
   'use strict';
 
   const HOST_ID = 'local-gestures-overlay';
+  const TOAST_ID = 'local-gestures-toast';
 
   function LGOverlay() {
     this.host = null;
@@ -163,6 +164,73 @@
     let out = '';
     for (const c of String(dirs)) out += ARROW[c] || c;
     return out;
+  };
+
+  /**
+   * Transient message, independent of any gesture in progress.
+   *
+   * Exists because a silently failing action is indistinguishable from a
+   * broken extension: if an action needs a permission that was never granted,
+   * the user has to be told, and told where to fix it.
+   */
+  let toastHost = null;
+  let toastTimer = null;
+
+  LGOverlay.toast = function (text) {
+    if (!text) return;
+    const parent = document.documentElement || document.body;
+    if (!parent) return;
+
+    if (toastHost && toastHost.parentNode) toastHost.parentNode.removeChild(toastHost);
+    clearTimeout(toastTimer);
+
+    const host = document.createElement('div');
+    host.id = TOAST_ID;
+    host.style.cssText = [
+      'all: initial',
+      'position: fixed',
+      'inset: auto 0 0 0',
+      'z-index: 2147483647',
+      'pointer-events: none'
+    ].join(';');
+
+    const shadow = host.attachShadow({ mode: 'closed' });
+    const style = document.createElement('style');
+    style.textContent = `
+      .t {
+        position: fixed;
+        left: 50%;
+        bottom: 90px;
+        transform: translateX(-50%);
+        max-width: 74vw;
+        padding: 9px 16px;
+        border-radius: 8px;
+        background: rgba(150, 40, 34, 0.94);
+        color: #fff;
+        font: 500 13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto,
+              "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei",
+              sans-serif;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+        pointer-events: none;
+        animation: lgfade 220ms ease-out;
+      }
+      @keyframes lgfade {
+        from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+        to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+      }
+    `;
+    const box = document.createElement('div');
+    box.className = 't';
+    box.textContent = text;
+
+    shadow.append(style, box);
+    parent.appendChild(host);
+    toastHost = host;
+
+    toastTimer = setTimeout(function () {
+      if (host.parentNode) host.parentNode.removeChild(host);
+      if (toastHost === host) toastHost = null;
+    }, 2600);
   };
 
   root.LGOverlay = LGOverlay;

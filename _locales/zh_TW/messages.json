@@ -74,6 +74,18 @@
   "hintUnassigned": {
     "message": "未綁定"
   },
+  "errMissingPermission": {
+    "message": "這個動作需要額外權限 —— 請到擴充功能設定的「進階」裡開啟。"
+  },
+  "errBlockedScheme": {
+    "message": "這種類型的連結無法用這種方式開啟。"
+  },
+  "errTabGone": {
+    "message": "那個分頁已經不存在了。"
+  },
+  "errFailed": {
+    "message": "動作沒能執行成功。"
+  },
   "btnDelete": {
     "message": "刪除"
   },
