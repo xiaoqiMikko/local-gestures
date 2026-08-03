@@ -101,10 +101,13 @@ python tools/verify.py
 
 **从源码装**(商店上架前):
 
-1. 下载或克隆本仓库
+1. 下载 ZIP:点绿色的 **`< > Code` → Download ZIP**,解压到一个不会被删掉的位置
 2. 打开 `chrome://extensions`
 3. 打开右上角的**开发者模式**
-4. 点**加载已解压的扩展程序**,选中仓库目录
+4. 点**加载已解压的扩展程序**,选中**含有 `manifest.json` 的那个文件夹**
+
+👉 **[手把手安装教程 →](INSTALL.zh-CN.md)** —— 含「请停用以开发者模式运行的
+扩展程序」提示怎么处理、装完没反应怎么排查、怎么更新、怎么备份配置。
 
 支持任何带 MV3 的 Chromium 浏览器:Chrome、Edge、Brave、Vivaldi。需要 Chrome 116 及以上。
 
@@ -130,12 +133,13 @@ python tools/demo.py       # 打开演示页,手动试
 端到端测试断言的是**可观察的结果** —— 网址变了、标签页数变了、
 滚动到了文档自身的最大位置 —— 而不是「处理函数有没有被调用」。共 109 项。
 
-> ⚠️ **别用 Playwright 自带的 Chromium 截图或判断样式。**
-> 在部分机器上它启动时不加载浏览器默认样式表,所有块级元素都会变成
-> `display: inline`:表格塌成一行,`<style>` 标签的内容被当正文画出来。
-> 页面看着全坏,但换成系统 Chrome 一切正常。
-> 涉及渲染的脚本(`gen_screenshots.py`)都走系统 Chrome,并且会先断言
-> `body` 的 display 是 `block`,不对就直接终止。
+> ⚠️ **页面整体看着结构崩了,先查浏览器,别查代码。**
+> Playwright 的 Chromium 安装目录如果缺了 `resources.pak`,启动时就不加载
+> 浏览器默认样式表,所有块级元素都会变成 `display: inline`:表格塌成一行,
+> `<style>` 标签的内容被当正文画出来。**不加载任何扩展也能复现。**
+> 判定:`getComputedStyle(document.body).display` 应为 `block`。
+> 修法:`python -m playwright install --force chromium`,**要让它跑完**。
+> `gen_screenshots.py` 截图前会先断言这一条,不对就直接终止。
 
 新增一个动作要改四个地方,漏了哪个 `verify.py` 都会告诉你:
 

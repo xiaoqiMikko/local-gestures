@@ -112,12 +112,21 @@ Chrome 137 之后**移除了 `--load-extension` 命令行开关**,自动化脚�
 
 ⚠️ **不要用 Playwright 自带的 Chromium 判断任何跟渲染有关的事。**
 
-在部分机器上它启动时不加载浏览器默认样式表,所有块级元素都变成
-`display: inline` —— 表格塌成一行,`<style>` 标签内容被当正文画出来。
-页面看着全坏,换系统 Chrome 一切正常。
+如果它的安装目录里缺了 `resources.pak`,启动时就不会加载浏览器默认样式表,
+所有块级元素都变成 `display: inline` —— 表格塌成一行,`<style>` 标签内容被
+当正文画出来。页面看着全坏,换系统 Chrome 一切正常,**扩展本身毫无问题**。
 
-判定方法(不加载任何扩展也能复现):
+判定(不加载任何扩展也能复现):
 
 ```js
 getComputedStyle(document.body).display   // 正常应为 "block"
 ```
+
+坏了的话查这个文件在不在,正常约 11 MB:
+
+```
+%LOCALAPPDATA%\ms-playwright\chromium-<版本>\chrome-win64\resources.pak
+```
+
+修法:`python -m playwright install --force chromium`,**等它跑完** ——
+中途打断就是这样缺文件的。

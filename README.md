@@ -103,10 +103,14 @@ configuration is not uploaded to a Google account either.
 
 **From source** (until the Web Store listing is live):
 
-1. Download or clone this repository
+1. Download the ZIP: **`< > Code` → Download ZIP**, then extract it somewhere permanent
 2. Open `chrome://extensions`
-3. Turn on **Developer mode**
-4. Click **Load unpacked** and pick the repository folder
+3. Turn on **Developer mode** (top right)
+4. Click **Load unpacked** and pick the folder containing `manifest.json`
+
+👉 **[Step-by-step guide with screenshots-level detail →](INSTALL.md)** —
+including what to do about the "disable developer mode extensions" prompt,
+how to update, and how to back up your settings.
 
 Works in any Chromium browser with MV3 support: Chrome, Edge, Brave, Vivaldi.
 Requires Chrome 116+.
@@ -138,14 +142,14 @@ scroll position reached the document's own maximum — rather than "the handler
 ran". 109 checks. Two actions cannot be driven by automation at all and are
 listed in [MANUAL-CHECKS.md](MANUAL-CHECKS.md) rather than quietly skipped.
 
-> ⚠️ **Do not use Playwright's bundled Chromium to judge anything about
-> rendering.** On some machines it starts without the user-agent stylesheet,
-> so every block element computes to `display: inline` — tables collapse into
-> a single line and `<style>` tags are painted as body text. The page looks
-> completely broken while being perfectly fine in real Chrome. Anything that
-> captures or measures layout (`gen_screenshots.py`) uses the installed
-> Chrome and asserts `getComputedStyle(document.body).display === 'block'`
-> before shooting.
+> ⚠️ **If every page looks structurally broken, check the browser before the
+> code.** A Playwright Chromium install that is missing `resources.pak` starts
+> without the user-agent stylesheet, so every block element computes to
+> `display: inline` — tables collapse to one line and `<style>` tags are
+> painted as body text. Reproduces with no extension loaded at all.
+> Detect with `getComputedStyle(document.body).display` (must be `block`);
+> fix with `python -m playwright install --force chromium`, run to completion.
+> `gen_screenshots.py` asserts this before capturing anything.
 
 Adding an action means touching four places, and `verify.py` will tell you if
 you miss one:
