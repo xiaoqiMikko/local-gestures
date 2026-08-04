@@ -335,12 +335,81 @@ be revoked from the settings page at any time.
 
 ---
 
+## 认证说明(提交时那一栏,上限 2000 字符)
+
+> 只给审核员看,用户看不到。**实测 1956 字符**,改动后务必重新数。
+>
+> 写法要点 —— 审核员的三个困惑,一个都别留:
+> 1. **「打开就是个网页,怎么测」** → 开头直接给六个能立刻按出效果的操作
+> 2. **「我划了没反应」** → 提前说明浏览器禁止内容脚本的页面,否则他在商店页面上试会判定功能不可用
+> 3. **「为什么要所有网站权限」** → 说清不做什么,并给一条他能自己跑的命令去公开仓库核对
+
+```
+NO ACCOUNT, NO DEPENDENCIES
+No login, no server, no paid tier, no dependency on anything else.
+
+QUICK TEST (30 seconds, on any ordinary http/https page)
+- Hold the RIGHT mouse button, drag LEFT, release -> Back
+- Hold right, drag RIGHT -> Forward
+- Hold right, drag DOWN then RIGHT -> Close tab
+- Hold right, drag DOWN then UP -> Reopen closed tab
+- Hold right, then click LEFT (rocker) -> Back
+- Hold right and turn the WHEEL -> switch tabs
+A blue trail follows the cursor and the action name is shown while drawing.
+
+Test on a normal web page: the browser forbids content scripts on edge://
+pages, the add-ons store and other extensions' pages.
+
+OFF BY DEFAULT - where to switch on
+Options page (toolbar icon, or Extensions > Local Gestures > options):
+- "Popup wheel" tab: enable, then hold the right button still ~0.35 s and
+  eight actions fan out around the cursor
+- "Other triggers" tab: simple drag, double click, touch gestures,
+  right-click menu entries. Off by default as they compete with selecting text.
+- "Advanced" tab: per-site disable list, thresholds, import/export
+
+OPTIONAL PERMISSIONS
+"downloads" and "bookmarks" are optional and NOT granted at install. They are
+requested at runtime only if the user enables the matching action, in the
+Advanced tab, and are revoked there.
+
+WHY A CONTENT SCRIPT ON ALL SITES
+A gesture must be recognisable on whatever page the user is on. The content
+script only listens to mouse, wheel and touch events and draws the trail in a
+closed shadow root. It reads a link URL, image URL or the selected text only
+at the moment a drag gesture completes, to run the action bound to that
+direction. It does not read page content or modify the page.
+
+NO NETWORK CODE
+No fetch, XMLHttpRequest, WebSocket, EventSource or sendBeacon anywhere in
+the source, and no host_permissions. Checkable in one command:
+  grep -rn "fetch(|XMLHttpRequest|WebSocket|sendBeacon" src/
+https://github.com/xiaoqiMikko/local-gestures
+```
+
+---
+
+## 踩过的坑(下次上架直接看这里)
+
+| 坑 | 表现 | 处理 |
+|---|---|---|
+| **描述里提了其他浏览器** | 页面当场弹「避免在扩展说明中引用其他浏览器」 | 只说标准名(Manifest V2),不提厂商 |
+| **`short_name` 超 12 字符** | 包验证警告,跟着进审核队列 | 做成多语言:`Gestures` / `鼠标手势` / `滑鼠手勢` |
+| **截图一次只能传一张** | 循环调用不报错,但只有前两张真落地 | 每传一张就数一次「添加图像描述」的数量 |
+| **搜索词要按回车** | 点「添加术语」有时不生效 | `fill` 后 `press("Enter")`;7 个满了输入框会禁用 |
+| **状态列读早了全是「未完成」** | 明明填完了却显示未完成 | 等表格行数 ≥4 再多等 10 秒才读 |
+| **Chrome 崩在保存后跳转** | 同一位置崩三次 | **换 Edge**,一次跑通,而且自带登录态 |
+| **上传中断留下失败占位块** | 卡着「未完成」不放 | 删掉 `button[aria-label='删除']`,会弹确认框 |
+
+---
+
 ## 上架前自查
 
-- [ ] 截图 5 张,1280×800,`store/screenshots/` 下已生成且能正常打开
-- [ ] `PRIVACY.md` 在 GitHub 上可公开访问(仓库是 public)
-- [ ] `manifest.json` 的 `version` 是否要抬一位
-- [ ] `python tools/verify.py` 通过
-- [ ] `python tools/e2e_test.py` 通过
-- [ ] `MANUAL-CHECKS.md` 里 7 项人工验证过一遍
-- [ ] 打包:把仓库目录压成 zip,**不要**包含 `tools/`、`store/`、`.git/`
+- [x] 截图 1280×800,`store/screenshots/` 下已生成且能正常打开
+- [x] `PRIVACY.md` 在 GitHub 上可公开访问(仓库是 public)
+- [x] `python tools/verify.py` 通过
+- [x] `python tools/e2e_test.py` 通过(109/109)
+- [x] 包验证**零警告**
+- [x] 打包用 `python tools/pack.py`,只含 `_locales / icons / manifest.json / src`
+- [ ] **`MANUAL-CHECKS.md` 里 7 项人工验证** —— 首版提交时**尚未做**
+- [ ] `manifest.json` 的 `version` 抬一位(下次更新时)
