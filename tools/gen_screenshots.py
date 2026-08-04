@@ -37,7 +37,13 @@ OUT = EXT / "store" / "screenshots"
 W, H = 1280, 800
 MARK = "/src/background/service-worker.js"
 
-LOCALES = [("zh-CN", "zh_CN"), ("en-US", "en")]
+# (browser locale, output folder, demo-page language or None)
+# The demo fixture exists in Simplified Chinese and English only. Rather than
+# put simplified text behind a Traditional Chinese listing, zh-TW ships the
+# settings screenshots alone — those are pure extension UI and are genuinely
+# in the listing's language.
+LOCALES = [("zh-CN", "zh_CN", ""), ("en-US", "en", "?lang=en"),
+           ("zh-TW", "zh_TW", None)]
 
 
 class Quiet(SimpleHTTPRequestHandler):
@@ -95,12 +101,13 @@ def worker(ctx, page):
     return None
 
 
-for locale, tag in LOCALES:
+for locale, tag, demo_lang in LOCALES:
     print(f"\n=== {locale} ===")
     profile = Path(gettempdir()) / f"lg-shot-{tag}-{int(time.time())}"
     # The extension localises itself from --lang, but the page behind it is a
-    # fixture and would otherwise stay Chinese in the English screenshots.
-    demo = f"{BASE}/demo.html" + ("?lang=en" if tag == "en" else "")
+    # fixture; a locale with no matching fixture skips the in-page shots
+    # rather than showing the wrong language behind the listing.
+    demo = None if demo_lang is None else f"{BASE}/demo.html{demo_lang}"
 
     with sync_playwright() as p:
         ctx = p.chromium.launch_persistent_context(
@@ -118,7 +125,7 @@ for locale, tag in LOCALES:
         )
         try:
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
-            page.goto(demo)
+            page.goto(demo or f"{BASE}/demo.html")
             page.wait_for_timeout(1200)
             sanity(page)
 
@@ -130,6 +137,8 @@ for locale, tag in LOCALES:
             print("   扩展 id:", ext_id)
 
             # 1 ── gesture trail, captured while the button is still down
+            if demo is None:
+                print("   无对应语言的演示页,只截设置页")
             page.mouse.move(640, 360)
             page.mouse.down(button="right")
             cx, cy = 640, 360
@@ -141,7 +150,8 @@ for locale, tag in LOCALES:
                     page.wait_for_timeout(6)
                 cx, cy = tx, ty
             page.wait_for_timeout(250)
-            shoot(page, OUT / tag / "1-gesture-trail.png")
+            if demo:
+                shoot(page, OUT / tag / "1-gesture-trail.png")
             page.mouse.move(300, 300)     # bail out into an unbound shape
             page.mouse.up(button="right")
             page.wait_for_timeout(500)
@@ -150,14 +160,15 @@ for locale, tag in LOCALES:
             sw.evaluate("() => chrome.storage.local.set("
                         "{ popupEnabled: true, popupDelay: 250 })")
             page.wait_for_timeout(500)
-            page.goto(demo)
+            page.goto(demo or f"{BASE}/demo.html")
             page.wait_for_timeout(900)
             page.mouse.move(640, 420)
             page.mouse.down(button="right")
             page.wait_for_timeout(700)
             page.mouse.move(640, 320)
             page.wait_for_timeout(250)
-            shoot(page, OUT / tag / "2-popup-wheel.png")
+            if demo:
+                shoot(page, OUT / tag / "2-popup-wheel.png")
             page.mouse.move(640, 420)
             page.mouse.up(button="right")
             page.wait_for_timeout(400)

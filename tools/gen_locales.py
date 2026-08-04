@@ -15,6 +15,9 @@ M = {
     "extName": ("Local Gestures — Mouse Gestures, 100% Offline",
                 "Local Gestures — 鼠标手势,完全离线",
                 "Local Gestures — 滑鼠手勢,完全離線"),
+    # short_name has a hard 12-character limit; the store flags anything
+    # longer as a package validation warning.
+    "extShortName": ("Gestures", "鼠标手势", "滑鼠手勢"),
     "extDesc": ("Mouse gestures, rocker, wheel, super drag and more. Zero network requests — nothing about your browsing ever leaves this machine.",
                 "鼠标手势、摇杆、滚轮、超级拖拽等全套功能。零网络请求 —— 你的浏览数据永远不会离开本机。",
                 "滑鼠手勢、搖桿、滾輪、超級拖曳等全套功能。零網路請求 —— 你的瀏覽資料永遠不會離開本機。"),

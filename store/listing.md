@@ -2,6 +2,12 @@
 
 给 Edge Add-ons(以及日后 Chrome Web Store)填表用。**直接复制粘贴。**
 
+> 🔴 **商店描述里绝不能出现其他浏览器名（Chrome / Google 等）。**
+> Partner Center 会当场弹出「避免在扩展说明中引用其他浏览器」的警告，硬发大概率被打回。
+> Manifest V2 那段故事改成只说标准名（"Manifest V2 已于 2025 年停止运行"），
+> 「你 Chrome 里设的默认搜索引擎」改成「你浏览器里设的默认搜索引擎」。
+> 权限用途说明那一栏不受此限 —— 那是给审核员看的，不公开展示。
+
 - 隐私政策 URL:`https://github.com/xiaoqiMikko/local-gestures/blob/main/PRIVACY.md`
 - 主页 URL:`https://github.com/xiaoqiMikko/local-gestures`
 - 支持 URL:`https://github.com/xiaoqiMikko/local-gestures/issues`

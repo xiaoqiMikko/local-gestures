@@ -2,6 +2,9 @@
   "extName": {
     "message": "Local Gestures — 滑鼠手勢,完全離線"
   },
+  "extShortName": {
+    "message": "滑鼠手勢"
+  },
   "extDesc": {
     "message": "滑鼠手勢、搖桿、滾輪、超級拖曳等全套功能。零網路請求 —— 你的瀏覽資料永遠不會離開本機。"
   },

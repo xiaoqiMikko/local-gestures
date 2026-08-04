@@ -41,3 +41,12 @@ for size in (16, 32, 48, 128):
 # a 512 master for the store listing
 img.save(OUT / "icon512.png")
 print("icon512.png")
+
+# Edge Add-ons wants a 300x300 store logo on an opaque background: the listing
+# page renders it on white, and a transparent PNG there shows as a hole.
+STORE = OUT.parent / "store"
+STORE.mkdir(parents=True, exist_ok=True)
+logo = Image.new("RGB", (300, 300), (255, 255, 255))
+logo.paste(img.resize((300, 300), Image.LANCZOS), (0, 0), img.resize((300, 300), Image.LANCZOS))
+logo.save(STORE / "logo-300.png")
+print("store/logo-300.png")

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "short_name": "Local Gestures",
+  "short_name": "__MSG_extShortName__",
   "version": "0.1.0",
   "default_locale": "en",
   "description": "__MSG_extDesc__",

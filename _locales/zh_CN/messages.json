@@ -2,6 +2,9 @@
   "extName": {
     "message": "Local Gestures — 鼠标手势,完全离线"
   },
+  "extShortName": {
+    "message": "鼠标手势"
+  },
   "extDesc": {
     "message": "鼠标手势、摇杆、滚轮、超级拖拽等全套功能。零网络请求 —— 你的浏览数据永远不会离开本机。"
   },

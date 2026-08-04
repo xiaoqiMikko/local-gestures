@@ -2,6 +2,9 @@
   "extName": {
     "message": "Local Gestures — Mouse Gestures, 100% Offline"
   },
+  "extShortName": {
+    "message": "Gestures"
+  },
   "extDesc": {
     "message": "Mouse gestures, rocker, wheel, super drag and more. Zero network requests — nothing about your browsing ever leaves this machine."
   },
